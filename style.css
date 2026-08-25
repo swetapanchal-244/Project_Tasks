@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f8f9fc;
+}
+
+.login-section {
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(135deg, #fff5f5, #ffffff);
+
+}
+
+
+.left-panel {
+
+    padding: 50px;
+
+}
+
+.brand-box h1 {
+
+    color: #d62839;
+    font-weight: 700;
+    margin-top: 20px;
+
+}
+
+.brand-box h5 {
+
+    color: #555;
+    margin-top: 10px;
+
+}
+
+.brand-box p {
+
+    color: #777;
+    margin-top: 20px;
+    line-height: 1.8;
+
+}
+
+.brand-icon {
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: #ffe4e6;
+
+    color: #d62839;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+
+    box-shadow: 0 15px 35px rgba(214, 40, 57, .15);
+
+}
+
+.info-card {
+
+    margin-top: 35px;
+
+    background: #fff;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+}
+
+.info-card i {
+
+    font-size: 28px;
+
+    color: #d62839;
+
+}
+
+.info-card span {
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+}
+
+.login-card {
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+}
+
+.logo-circle {
+
+    width: 75px;
+    height: 75px;
+
+    margin: auto;
+
+    background: #ffe4e6;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #d62839;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+}
+
+h2 {
+
+    font-weight: 700;
+    color: #222;
+
+}
+
+.subtitle {
+
+    color: #888;
+
+}
+
+.form-label {
+
+    font-weight: 500;
+
+}
+
+.custom-input {
+
+    border: 1px solid #ddd;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: .3s;
+
+}
+
+.custom-input:focus-within {
+
+    border-color: #d62839;
+
+    box-shadow:
+        0 0 0 4px rgba(214, 40, 57, .12);
+
+}
+
+.input-group-text {
+
+    background: #fff;
+
+    border: none;
+
+    color: #d62839;
+
+}
+
+.form-control {
+
+    border: none;
+
+    height: 52px;
+
+}
+
+.form-control:focus {
+
+    box-shadow: none;
+
+}
+
+.bg-white {
+
+    border: none;
+
+}
+
+.login-btn {
+
+    background: #d62839;
+
+    color: #fff;
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    border: none;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+.login-btn:hover {
+
+    background: #b71c2c;
+
+    color: #fff;
+
+    transform: translateY(-2px);
+
+}
+
+a {
+
+    color: #d62839;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+}
+
+a:hover {
+
+    text-decoration: underline;
+
+}
+
+input[type="checkbox"] {
+
+    accent-color: #d62839;
+
+}
+
+@media(max-width:992px) {
+
+    .left-panel {
+
+        display: none;
+
+    }
+
+    .login-card {
+
+        padding: 30px;
+
+    }
+
+}
