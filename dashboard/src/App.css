@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #f5f7fb;
+    font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+    z-index: 1000;
+}
+
+.navbar .form-control {
+    border-radius: 12px;
+}
+
+.sidebar-link {
+    transition: all 0.3s ease;
+}
+
+.sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff !important;
+    transform: translateX(6px);
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,.12) !important;
+}
+
+.profile-img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+
+@media (max-width:768px){
+
+    .navbar .form-control{
+        display:none;
+    }
+
+}
