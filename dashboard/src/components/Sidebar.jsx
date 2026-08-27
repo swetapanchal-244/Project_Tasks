@@ -1,54 +1,56 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ role, activeMenu }) => {
 
     const patientMenu = [
-        { icon: "bi-speedometer2", text: "Dashboard" },
-        { icon: "bi-droplet-fill", text: "Blood Requests" },
-        { icon: "bi-calendar2-check", text: "Appoitments" },
-        { icon: "bi-person-fill", text: "Profile" },
-        { icon: "bi-box-arrow-right", text: "Logout" },
+        { icon: "bi-speedometer2", text: "Dashboard", path: "/patient-dashboard" },
+        { icon: "bi-droplet-fill", text: "Blood Requests", path: "/blood-requests" },
+        { icon: "bi-calendar2-check", text: "Appointments", path: "/appointments" },
+        { icon: "bi-person-fill", text: "Profile", path: "/profile" },
+        { icon: "bi-box-arrow-right", text: "Logout", path: "/logout" },
     ];
 
     const adminMenu = [
-        { icon: "bi-speedometer2", text: "Dashboard" },
-        { icon: "bi-people-fill", text: "Manage Users" },
-        { icon: "bi-heart-pulse-fill", text: "Manage Donors" },
-        { icon: "bi-hospital-fill", text: "Blood Requests" },
-        { icon: "bi-bar-chart-fill", text: "Reports" },
-        { icon: "bi-box-arrow-right", text: "Logout" },
+        { icon: "bi-speedometer2", text: "Dashboard", path: "/admin-dashboard" },
+        { icon: "bi-people-fill", text: "Manage Users", path: "/manage-users" },
+        { icon: "bi-heart-pulse-fill", text: "Manage Donors", path: "/manage-donors" },
+        { icon: "bi-hospital-fill", text: "Blood Requests", path: "/blood-requests" },
+        { icon: "bi-bar-chart-fill", text: "Reports", path: "/reports" },
+        { icon: "bi-box-arrow-right", text: "Logout", path: "/logout" },
     ];
 
     const menu = role === "admin" ? adminMenu : patientMenu;
 
-    return(
+    return (
         <div
             className="bg-danger text-white p-3"
             style={{
-                width: "250px",
+                width: "260px",
                 minHeight: "100vh",
             }}
         >
-            <h4 className="mb-4 fw-bold">
+            <h3 className="fw-bold mb-5">
                 <i className="bi bi-heart-pulse-fill me-2"></i>
                 BloodLink
-            </h4>
+            </h3>
 
-            <ul className="nav flex-column">
+            <ul className="nav flex-column gap-2">
 
                 {menu.map((item, index) => (
 
                     <li className="nav-item mb-2" key={index}>
 
-                        <a
-                            herf="#"
-                            className={`nav-link sidebar-link rounded px-3 py-2 ${
-                                activeMenu === item.text ? "bg-white text-danger fw-bold" : "text-white"
-                            }`}
+                        <NavLink
+                            to={item.path}
+                            end={item.path === "/admin-dashboard" || item.path === "/patient-dashboard"}
+                            className={({ isActive }) =>
+                                `nav-link sidebar-link ${isActive ? "active-link" : ""}`
+                            }
                         >
                             <i className={`${item.icon} me-2`}></i>
                             {item.text}
-                        </a>
+                        </NavLink>
                     </li>
                 ))}
             </ul>

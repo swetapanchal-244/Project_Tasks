@@ -14,13 +14,29 @@ body {
 }
 
 .sidebar-link {
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff !important;
+    border-radius: 10px;
+    padding: 12px 16px !important;
+    transition: .3s;
+    text-decoration: none;
 }
 
 .sidebar-link:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, .15);
     color: #fff !important;
-    transform: translateX(6px);
+}
+
+.active-link {
+    background: #fff !important;
+    color: #dc3545 !important;
+    font-weight: 600;
+}
+
+.active-link i {
+    color: #dc3545 !important;
 }
 
 .card {
@@ -28,8 +44,16 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0,0,0,.12) !important;
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .18) !important;
+}
+
+.btn{
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.03);
 }
 
 .profile-img {
@@ -38,10 +62,61 @@ body {
     object-fit: cover;
 }
 
-@media (max-width:768px){
+.role-btn{
+    transition:0.3s;
+    border-radius:12px;
+    font-weight:600;
+}
 
-    .navbar .form-control{
-        display:none;
+.role-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+}
+
+.role-card{
+    border-radius:20px;
+    transition:.3s;
+}
+
+.role-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15)!important;
+}
+
+.role-card .btn{
+    border-radius:10px;
+    font-weight:600;
+}
+
+@media (max-width:768px) {
+
+    .navbar .form-control {
+        display: none;
+    }
+
+    .navbar-toggler {
+        border: none;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+
+    @media (max-width: 991px) {
+
+        .navbar-collapse {
+            margin-top: 20px;
+        }
+
+        .navbar form {
+            width: 100% !important;
+            margin-bottom: 20px;
+        }
+
+        .navbar .d-flex.align-items-center.gap-3 {
+            justify-content: space-between;
+            width: 100;
+        }
     }
 
 }

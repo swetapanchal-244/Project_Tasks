@@ -13,7 +13,7 @@ function AdminDashboard() {
 
             <div className="d-flex">
 
-                <Sidebar 
+                <Sidebar
                     role="admin"
                     activeMenu="Dashboard" />
 
@@ -28,7 +28,7 @@ function AdminDashboard() {
                             </h3>
 
                             <p className="mb-0">
-                                Manage donors, patients, blood requests and reports efficiently.
+                                Monitor users, donors, blood requests, hospitals and reports from one place.
                             </p>
 
                         </div>
@@ -63,6 +63,20 @@ function AdminDashboard() {
                             value="12"
                             icon="bi-hospital-fill"
                             color="#fd7e14"
+                        />
+
+                        <DashboardCard
+                            title="Pending Requests"
+                            value="08"
+                            icon="bi-hourglass-split"
+                            color="#ffc107"
+                        />
+
+                        <DashboardCard
+                            title="Reports"
+                            value="20"
+                            icon="bi-file-earmark-bar-graph-fill"
+                            color="#6f42c1"
                         />
 
                     </div>

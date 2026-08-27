@@ -50,7 +50,7 @@ function PatientDashboard() {
                         />
 
                         <DashboardCard
-                            title="Appoitment"
+                            title="Appointments"
                             value="02"
                             icon="bi-calendar2-check"
                             color="#198754"
@@ -61,6 +61,20 @@ function PatientDashboard() {
                             value="18"
                             icon="bi-people-fill"
                             color="#fd7e14"
+                        />
+
+                        <DashboardCard
+                            title="Request Status"
+                            value="Pending"
+                            icon="bi-clock-history"
+                            color="#ffc107"
+                        />
+
+                        <DashboardCard
+                            title="Notifications"
+                            value="03"
+                            icon="bi-bell-fill"
+                            color="#6c757d"
                         />
                     </div>
 
