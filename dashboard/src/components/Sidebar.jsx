@@ -6,6 +6,7 @@ const Sidebar = ({ role, activeMenu }) => {
     const patientMenu = [
         { icon: "bi-speedometer2", text: "Dashboard", path: "/patient-dashboard" },
         { icon: "bi-droplet-fill", text: "Blood Requests", path: "/blood-requests" },
+        { icon: "bi-file-earmark-medical-fill", text: "Donation Request", path: "/donation-request" },
         { icon: "bi-calendar2-check", text: "Appointments", path: "/appointments" },
         { icon: "bi-person-fill", text: "Profile", path: "/profile" },
         { icon: "bi-box-arrow-right", text: "Logout", path: "/logout" },
@@ -16,6 +17,7 @@ const Sidebar = ({ role, activeMenu }) => {
         { icon: "bi-people-fill", text: "Manage Users", path: "/manage-users" },
         { icon: "bi-heart-pulse-fill", text: "Manage Donors", path: "/manage-donors" },
         { icon: "bi-hospital-fill", text: "Blood Requests", path: "/blood-requests" },
+        { icon: "bi-droplet-fill", text: "Blood Stock", path: "/blood-stock" },
         { icon: "bi-bar-chart-fill", text: "Reports", path: "/reports" },
         { icon: "bi-box-arrow-right", text: "Logout", path: "/logout" },
     ];

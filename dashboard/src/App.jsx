@@ -4,6 +4,9 @@ import RoleSelection from "./pages/RoleSelection";
 import DonorHome from "./pages/DonorHome";
 import PatientDashboard from "./pages/PatientDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import Profile from "./pages/Profile";
+import BloodStock from "./pages/BloodStock";
+import DonationRequest from "./pages/DonationRequest";
 
 function App() {
   return (
@@ -25,6 +28,18 @@ function App() {
         <Route
           path="/admin-dashboard"
           element={<AdminDashboard />}
+        />
+        <Route
+          path="/profile"
+          element={<Profile />}
+        />
+        <Route
+          path="/blood-stock"
+          element={<BloodStock />}
+        />
+        <Route
+          path="/donation-request"
+          element={<DonationRequest />}
         />
       </Routes>
 
