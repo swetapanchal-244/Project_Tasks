@@ -7,10 +7,16 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Profile from "./pages/Profile";
 import BloodStock from "./pages/BloodStock";
 import DonationRequest from "./pages/DonationRequest";
+import BloodRequest from "./pages/BloodRequest";
+import DonorScheduling from "./pages/DonorScheduling";
+import Notification from "./components/Notification";
 
 function App() {
   return (
     <BrowserRouter>
+
+      <Notification />
+
       <Routes>
 
         <Route
@@ -40,6 +46,14 @@ function App() {
         <Route
           path="/donation-request"
           element={<DonationRequest />}
+        />
+        <Route
+          path="/blood-requests"
+          element={<BloodRequest />}
+        />
+        <Route
+          path="/donation-scheduling"
+          element={<DonorScheduling />}
         />
       </Routes>
 

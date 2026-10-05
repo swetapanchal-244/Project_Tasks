@@ -7,6 +7,7 @@ const Sidebar = ({ role, activeMenu }) => {
         { icon: "bi-speedometer2", text: "Dashboard", path: "/patient-dashboard" },
         { icon: "bi-droplet-fill", text: "Blood Requests", path: "/blood-requests" },
         { icon: "bi-file-earmark-medical-fill", text: "Donation Request", path: "/donation-request" },
+        { icon: "bi-calendar-check-fill", text: "Donation Scheduling", path: "/donation-scheduling" },
         { icon: "bi-calendar2-check", text: "Appointments", path: "/appointments" },
         { icon: "bi-person-fill", text: "Profile", path: "/profile" },
         { icon: "bi-box-arrow-right", text: "Logout", path: "/logout" },
