@@ -1,6 +1,8 @@
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { showSuccess } from "../components/Notification";
+import FormInput from "../components/FormInput";
+import BloodGroupDropdown from "../components/BloodGroupDropdown";
 
 function BloodRequest() {
     return (
@@ -46,14 +48,11 @@ function BloodRequest() {
 
                                 <div className="col-md-6">
 
-                                    <label className="form-label fw-semibold">
-                                        Patient Name
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        className="form-control"
+                                    <FormInput
+                                        label="Patient Name"
+                                        name="patientName"
                                         placeholder="Enter patient name"
+                                        required
                                     />
 
                                 </div>
@@ -61,41 +60,21 @@ function BloodRequest() {
 
                                 <div className="col-md-6">
 
-                                    <label className="form-label fw-semibold">
-                                        Blood Group
-                                    </label>
-
-                                    <select className="form-select">
-
-                                        <option value="">
-                                            Select Blood Group
-                                        </option>
-
-                                        <option>A+</option>
-                                        <option>A-</option>
-                                        <option>B+</option>
-                                        <option>B-</option>
-                                        <option>O+</option>
-                                        <option>O-</option>
-                                        <option>AB+</option>
-                                        <option>AB-</option>
-
-                                    </select>
+                                    <BloodGroupDropdown
+                                        required
+                                    />
 
                                 </div>
 
 
                                 <div className="col-md-6">
 
-                                    <label className="form-label fw-semibold">
-                                        Required Units
-                                    </label>
-
-                                    <input
+                                    <FormInput
+                                        label="Required Units"
                                         type="number"
-                                        className="form-control"
+                                        name="requiredUnits"
                                         placeholder="Enter required units"
-                                        min="1"
+                                        required
                                     />
 
                                 </div>
@@ -123,14 +102,11 @@ function BloodRequest() {
 
                                 <div className="col-md-6">
 
-                                    <label className="form-label fw-semibold">
-                                        Hospital Name
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        className="form-control"
+                                    <FormInput
+                                        label="Hospital Name"
+                                        name="hospitalName"
                                         placeholder="Enter hospital name"
+                                        required
                                     />
 
                                 </div>

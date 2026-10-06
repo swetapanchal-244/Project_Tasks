@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { showSuccess } from "../components/Notification";
+import BloodGroupDropdown from "../components/BloodGroupDropdown";
 
 function DonorScheduling() {
     return (
@@ -103,26 +104,9 @@ function DonorScheduling() {
 
                                 <div className="col-md-6">
 
-                                    <label className="form-label fw-semibold">
-                                        Blood Group
-                                    </label>
-
-                                    <select className="form-select">
-
-                                        <option value="">
-                                            Select Blood Group
-                                        </option>
-
-                                        <option>A+</option>
-                                        <option>A-</option>
-                                        <option>B+</option>
-                                        <option>B-</option>
-                                        <option>O+</option>
-                                        <option>O-</option>
-                                        <option>AB+</option>
-                                        <option>AB-</option>
-
-                                    </select>
+                                    <BloodGroupDropdown
+                                        required
+                                    />
 
                                 </div>
 
