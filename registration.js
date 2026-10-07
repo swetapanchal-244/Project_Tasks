@@ -12,6 +12,20 @@ function togglePassword() {
     }
 }
 
+function toggleConfirmPassword() {
+
+    const confirmPassword = document.getElementById("confirmPassword");
+    const confirmEye = document.getElementById("confirmEye");
+
+    if (confirmPassword.type === "password") {
+        confirmPassword.type = "text";
+        confirmEye.classList.replace("bi-eye-fill", "bi-eye-slash-fill");
+    } else {
+        confirmPassword.type = "password";
+        confirmEye.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
+    }
+}
+
 const form = document.querySelector("form");
 
 form.addEventListener("submit", function (e) {
