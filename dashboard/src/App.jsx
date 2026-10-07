@@ -10,6 +10,7 @@ import DonationRequest from "./pages/DonationRequest";
 import BloodRequest from "./pages/BloodRequest";
 import DonorScheduling from "./pages/DonorScheduling";
 import Notification from "./components/Notification";
+import Registration from "./pages/Registration";
 
 function App() {
   return (
@@ -54,6 +55,10 @@ function App() {
         <Route
           path="/donation-scheduling"
           element={<DonorScheduling />}
+        />
+        <Route
+          path="/registration"
+          element={<Registration />}
         />
       </Routes>
 
