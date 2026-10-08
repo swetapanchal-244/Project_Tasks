@@ -11,6 +11,7 @@ import BloodRequest from "./pages/BloodRequest";
 import DonorScheduling from "./pages/DonorScheduling";
 import Notification from "./components/Notification";
 import Registration from "./pages/Registration";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -59,6 +60,10 @@ function App() {
         <Route
           path="/registration"
           element={<Registration />}
+        />
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
         />
       </Routes>
 

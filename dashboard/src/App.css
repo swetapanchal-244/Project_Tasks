@@ -334,3 +334,230 @@ body {
 .footer i {
     font-size: 20px;
 }
+
+.registration-section .left-panel {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.registration-section .registration-form-wrapper {
+    animation: slideInRight 0.8s ease-out;
+}
+
+
+.registration-section .custom-input {
+    transition: all 0.3s ease;
+}
+
+.registration-section .custom-input:hover {
+    transform: translateY(-2px);
+}
+
+
+.registration-section .login-btn {
+    transition: all 0.3s ease;
+}
+
+.registration-section .login-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.forgot-password-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,
+            var(--primary-light),
+            var(--white-color));
+}
+
+.forgot-password-card {
+    background: var(--white-color);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+    animation: forgotPasswordSlide 0.8s ease-out;
+}
+
+.forgot-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.forgot-password-card h2 {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.forgot-password-card .text-muted {
+    color: var(--muted-color) !important;
+    line-height: 1.6;
+}
+
+.forgot-password-card .custom-input {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.forgot-password-card .custom-input:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(214, 40, 57, 0.12);
+}
+
+.forgot-password-card .input-group-text {
+    background: var(--white-color);
+    border: none;
+    color: var(--primary-color);
+}
+
+.forgot-password-card .form-control {
+    border: none;
+    height: 52px;
+}
+
+.forgot-password-card .form-control:focus {
+    box-shadow: none;
+}
+
+.forgot-btn {
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 13px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.forgot-btn:hover {
+    background: var(--primary-dark);
+    color: var(--white-color);
+    transform: translateY(-3px);
+}
+
+.forgot-password-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password-card a:hover {
+    text-decoration: underline;
+}
+
+@keyframes forgotPasswordSlide {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 576px) {
+
+    .forgot-password-card {
+        padding: 30px 20px;
+    }
+
+    .forgot-password-card-section {
+        padding: 20px;
+    }
+}
+
+.sidebar-accordion-button,
+.sidebar-accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: var(--white-color);
+    box-shadow: none;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.sidebar-accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+.sidebar-accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);
+}
+
+.sidebar-accordion-button:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+}
+
+.sidebar-accordion-button:hover::after,
+.sidebar-accordion-button:not(.collapsed):hover::after {
+    filter: brightness(0) invert(1);
+}
+
+.sidebar-accordion-button:focus {
+    box-shadow: none;
+}
+
+.sccordion-body {
+    background: transparent;
+    padding: 5px 0 5px 25px;
+}
+
+.accordion-body .sidebar-link {
+    color: var(--white-color) !important;
+    background-color: transparent;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.accordion-body .sidebar-link:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color) !important;
+}
+
+.accordion-body .sidebar-link.active-link {
+    background-color: var(--white-color);
+    color: var(--primary-color) !important;
+}

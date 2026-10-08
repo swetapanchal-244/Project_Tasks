@@ -148,7 +148,7 @@ function Registration() {
 
                         </div>
 
-                        <div className="col-lg-5 col-md-8">
+                        <div className="col-lg-5 col-md-8 registration-form-wrapper">
 
                             <div className="login-card">
 
