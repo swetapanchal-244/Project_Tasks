@@ -337,7 +337,12 @@ function Registration() {
 
                                     <button
                                         type="submit"
-                                        className="btn login-btn w-100"
+                                        className="btn w-100 text-white fw-semibold py-2 rounded-3"
+                                        style={{
+                                            background:
+                                                "linear-gradient(115deg, #951629 0%, #b42332 55%, #a51d30 100%)",
+                                            border: "none"
+                                        }}
                                     >
                                         Create Account
                                     </button>

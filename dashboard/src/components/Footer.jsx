@@ -1,26 +1,39 @@
+
 function Footer() {
     return (
-        <footer className="footer">
-            <div className="container">
-                <div className="row align-items-center">
+        <footer
+            className="mt-4 mt-lg-5 text-white shadow-sm"
+            style={{
+                background: "linear-gradient(110deg, #951629 0%, #b42332 55%, #a51d30 100%)",
+                borderTop: "3px solid #e85b6a"
+            }}
+        >
+            <div className="container-fluid px-3 px-lg-4 py-3">
+                <div className="row align-items-center gy-3">
+                    <div className="col-md-6 text-center text-md-start">
+                        <a
+                            href="/"
+                            className="d-inline-flex align-items-center gap-2 text-decoration-none text-white"
+                        >
+                            <i className="bi bi-heart-pulse-fill fs-5"></i>
+                            <span className="fw-bold fs-5">BloodLink</span>
+                        </a>
 
-                    <div className="col-md-6">
-                        <h5 className="mb-1">
-                            <i className="bi bi-heart-pulse-fill me-2"></i>
-                            BloodLink
-                        </h5>
-
-                        <p className="mb-0">
-                            Share Life, Give Blood ❤️
+                        <p className="small mb-0 mt-1">
+                            Share Life, Give Blood.
+                            <i className="bi bi-heart-fill ms-2 text-white-50"></i>
                         </p>
                     </div>
 
-                    <div className="col-md-6 text-md-end mt-3 mt-md-0">
-                        <p className="mb-0">
+                    <div className="col-md-6 text-center text-md-end">
+                        <p className="small mb-1">
                             © 2026 BloodLink. All Rights Reserved.
                         </p>
+                        <p className="small text-white-50 mb-0">
+                            Every donation can make a difference.
+                            <i className="bi bi-heart-fill ms-2"></i>
+                        </p>
                     </div>
-
                 </div>
             </div>
         </footer>

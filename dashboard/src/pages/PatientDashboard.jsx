@@ -3,86 +3,90 @@ import Sidebar from "../components/Sidebar";
 import DashboardCard from "../components/DashboardCard";
 
 function PatientDashboard() {
+    const gradient =
+        "linear-gradient(115deg, #951629 0%, #b42332 55%, #a51d30 100%)";
+
+    const savedProfile = JSON.parse(
+        localStorage.getItem("patientProfile") ||
+        '{"name":"Sweta Panchal"}'
+    );
+
+    const patientName = savedProfile.name || "Sweta Panchal";
+
     return (
-        <>
+        <div className="min-vh-100 d-flex flex-column bg-light">
             <Navbar
-                name="Sweta"
+                name={patientName}
                 role="Patient"
                 profileImage="/profile.jpg"
             />
 
-            <div className="d-flex">
+            <div className="d-flex flex-grow-1">
+                <Sidebar role="patient" activeMenu="Dashboard" />
 
-                <Sidebar
-                    role="patient"
-                    activeMenu="Dashboard" />
+                <main className="container-fluid p-3 p-lg-4">
+                    <div
+                        className="card border-0 rounded-4 shadow-sm text-white mb-4"
+                        style={{ background: gradient }}
+                    >
+                        <div className="card-body p-4 p-lg-5">
+                            <span className="badge bg-white text-danger mb-3">
+                                PATIENT DASHBOARD
+                            </span>
 
-                <div className="container-fluid p-4">
-
-                    <div className="card border-0 shadow-sm rounded-4 mb-4 bg-danger text-white">
-                        <div className="card-body p-4">
-
-                            <h3 className="fw-bold">
-                                Welcome Back, Sweta !
-                            </h3>
+                            <h2 className="fw-bold">
+                                Welcome Back, {patientName}!
+                            </h2>
 
                             <p className="mb-0">
-                                Manage your blood requests, appoitments and donor information from one place.
+                                Manage your blood requests and stay updated
+                                on your blood donation needs.
                             </p>
                         </div>
                     </div>
 
+                    <div className="mb-4">
+                        <h4 className="fw-bold text-dark mb-1">
+                            Dashboard Overview
+                        </h4>
 
-                    <div className="row">
+                        <p className="text-secondary mb-0">
+                            Track your blood requests and appointments.
+                        </p>
+                    </div>
 
+                    <div className="row g-4">
                         <DashboardCard
-                            title="Blood Group"
-                            value="O+"
+                            title="Total Blood Requests"
+                            value="02"
                             icon="bi-droplet-fill"
-                            color="#dc3545"
+                            color="#a51d30"
                         />
 
                         <DashboardCard
-                            title="Requests"
-                            value="05"
-                            icon="bi-heart-pulse-fill"
-                            color="#0d6efd"
+                            title="Pending Requests"
+                            value="01"
+                            icon="bi-clock-history"
+                            color="#a51d30"
                         />
 
                         <DashboardCard
                             title="Appointments"
-                            value="02"
+                            value="01"
                             icon="bi-calendar2-check"
-                            color="#198754"
-                        />
-
-                        <DashboardCard
-                            title="Nearby Donors"
-                            value="18"
-                            icon="bi-people-fill"
-                            color="#fd7e14"
+                            color="#a51d30"
                         />
 
                         <DashboardCard
                             title="Request Status"
-                            value="Pending"
-                            icon="bi-clock-history"
-                            color="#ffc107"
-                        />
-
-                        <DashboardCard
-                            title="Notifications"
-                            value="03"
-                            icon="bi-bell-fill"
-                            color="#6c757d"
+                            value="Active"
+                            icon="bi-heart-pulse-fill"
+                            color="#a51d30"
                         />
                     </div>
-
-                </div>
-
+                </main>
             </div>
-
-        </>
+        </div>
     );
 }
 

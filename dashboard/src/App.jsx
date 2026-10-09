@@ -12,6 +12,7 @@ import DonorScheduling from "./pages/DonorScheduling";
 import Notification from "./components/Notification";
 import Registration from "./pages/Registration";
 import ForgotPassword from "./pages/ForgotPassword";
+import DonorProfile from "./pages/DonorProfile";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           element={<RoleSelection />}
         />
         <Route
-          path="/donor-home"
+          path="/donor-dashboard"
           element={<DonorHome />}
         />
         <Route
@@ -46,7 +47,7 @@ function App() {
           element={<BloodStock />}
         />
         <Route
-          path="/donation-request"
+          path="/donor-donation-request"
           element={<DonationRequest />}
         />
         <Route
@@ -54,7 +55,7 @@ function App() {
           element={<BloodRequest />}
         />
         <Route
-          path="/donation-scheduling"
+          path="/donor-donation-scheduling"
           element={<DonorScheduling />}
         />
         <Route
@@ -64,6 +65,10 @@ function App() {
         <Route
           path="/forgot-password"
           element={<ForgotPassword />}
+        />
+        <Route
+          path="/donor-profile"
+          element={<DonorProfile />}
         />
       </Routes>
 

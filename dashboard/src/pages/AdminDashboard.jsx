@@ -1,90 +1,52 @@
+
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import DashboardCard from "../components/DashboardCard";
 
 function AdminDashboard() {
+    const gradient = "linear-gradient(115deg, #951629 0%, #b42332 55%, #a51d30 100%)";
+
     return (
-        <>
-            <Navbar
-                name="Admin"
-                role="Administrator"
-                profileImage="/profile.jpg"
-            />
+        <div className="min-vh-100 d-flex flex-column bg-light">
+            <Navbar name="Admin" role="Administrator" profileImage="/profile.jpg" />
 
-            <div className="d-flex">
+            <div className="d-flex flex-grow-1">
+                <Sidebar role="admin" activeMenu="Dashboard" />
 
-                <Sidebar
-                    role="admin"
-                    activeMenu="Dashboard" />
-
-                <div className="container-fluid p-4">
-
-                    <div className="card border-0 shadow-sm rounded-4 mb-4 bg-danger text-white">
-
-                        <div className="card-body p-4">
-
-                            <h3 className="fw-bold">
-                                Welcome Admin !
-                            </h3>
-
+                <main className="container-fluid p-3 p-lg-4">
+                    <div
+                        className="card border-0 rounded-4 shadow-sm text-white mb-4"
+                        style={{ background: gradient }}
+                    >
+                        <div className="card-body p-4 p-lg-5">
+                            <span className="badge bg-white text-danger mb-3">
+                                ADMINISTRATION
+                            </span>
+                            <h2 className="fw-bold">Welcome Back, Admin!</h2>
                             <p className="mb-0">
-                                Monitor users, donors, blood requests, hospitals and reports from one place.
+                                Monitor users, donors, blood requests and blood stock.
                             </p>
-
                         </div>
-
                     </div>
 
-                    <div className="row">
-
-                        <DashboardCard
-                            title="Total Users"
-                            value="350"
-                            icon="bi-people-fill"
-                            color="#0d6efd"
-                        />
-
-                        <DashboardCard
-                            title="Total Donors"
-                            value="180"
-                            icon="bi-heart-pulse-fill"
-                            color="#dc3545"
-                        />
-
-                        <DashboardCard
-                            title="Blood Requests"
-                            value="45"
-                            icon="bi-droplet-fill"
-                            color="#198754"
-                        />
-
-                        <DashboardCard
-                            title="Hospitals"
-                            value="12"
-                            icon="bi-hospital-fill"
-                            color="#fd7e14"
-                        />
-
-                        <DashboardCard
-                            title="Pending Requests"
-                            value="08"
-                            icon="bi-hourglass-split"
-                            color="#ffc107"
-                        />
-
-                        <DashboardCard
-                            title="Reports"
-                            value="20"
-                            icon="bi-file-earmark-bar-graph-fill"
-                            color="#6f42c1"
-                        />
-
+                    <div className="mb-4">
+                        <h4 className="fw-bold text-dark mb-1">System Overview</h4>
+                        <p className="text-secondary mb-0">
+                            A quick summary of BloodLink activities.
+                        </p>
                     </div>
 
-                </div>
-
+                    <div className="row g-4">
+                        <DashboardCard title="Total Users" value="125" icon="bi-people-fill" color="#a51d30" />
+                        <DashboardCard title="Registered Donors" value="48" icon="bi-heart-pulse-fill" color="#a51d30" />
+                        <DashboardCard title="Blood Requests" value="32" icon="bi-droplet-fill" color="#a51d30" />
+                        <DashboardCard title="Pending Requests" value="08" icon="bi-clock-history" color="#a51d30" />
+                        <DashboardCard title="Blood Groups" value="08" icon="bi-hospital-fill" color="#a51d30" />
+                        <DashboardCard title="Reports" value="12" icon="bi-file-earmark-bar-graph-fill" color="#a51d30" />
+                    </div>
+                </main>
             </div>
-        </>
+        </div>
     );
 }
 

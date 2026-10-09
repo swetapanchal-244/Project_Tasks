@@ -1,210 +1,68 @@
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+import DashboardCard from "../components/DashboardCard";
 
 function DonorHome() {
+    const gradient =
+        "linear-gradient(115deg, #951629 0%, #b42332 55%, #a51d30 100%)";
+
+    const savedProfile = JSON.parse(
+        localStorage.getItem("donorProfile") ||
+        '{"name":"Sweta Panchal"}'
+    );
+
+    const donorName = savedProfile.name || "Sweta Panchal";
+
     return (
-        <>
+        <div className="min-vh-100 d-flex flex-column bg-light">
             <Navbar
-                name="Donor"
-                role="Blood Donor"
+                name={donorName}
+                role="Donor"
                 profileImage="/profile.jpg"
             />
 
-            <section
-                className="bg-danger text-white d-flex align-items-center"
-                style={{
-                    minHeight: "450px",
+            <div className="d-flex flex-grow-1">
+                <Sidebar role="donor" activeMenu="Dashboard" />
 
-                }}
-            >
-                <div className="container">
-
+                <main className="container-fluid p-3 p-lg-4">
                     <div
-                        className="row align-items-center"
-                        style={{ minHeight: "300px" }}
-
+                        className="card border-0 rounded-4 shadow-sm text-white mb-4"
+                        style={{ background: gradient }}
                     >
+                        <div className="card-body p-4 p-lg-5">
+                            <span className="badge bg-white text-danger mb-3">
+                                DONOR DASHBOARD
+                            </span>
 
-                        <div className="col-lg-6">
+                            <h2 className="fw-bold">
+                                Welcome Back, {donorName}!
+                            </h2>
 
-                            <h1 className="display-4 fw-bold">
-                                Donate Blood, Save Lives
-                            </h1>
-
-                            <p className="lead mt-3">
-                                Your single blood donation can save up to three lives.
-                                Join BloodLink today and become a hero.
+                            <p className="mb-0">
+                                Thank you for donating blood and helping save lives.
                             </p>
-
-                            <div className="mt-4">
-
-                                <Link
-                                    to="/patient-dashboard"
-                                    className="btn btn-light btn-lg rounded-pill px-4 me-3"
-                                >
-                                    Become Donor
-                                </Link>
-
-                                <a
-                                    href="#why-donate"
-                                    className="btn btn-outline-light btn-lg rounded-pill px-4"
-                                >
-                                    Learn More
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-6 text-center">
-
-                            <img
-                                src="./blood.jpg"
-                                alt="Blood Donation"
-                                className="img-fluid rounded-4"
-                                style={{
-                                    maxWidth: "420px",
-                                    width: "100%"
-                                }}
-
-                            />
-
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <section id="why-donate" className="py-5">
-                <div className="container">
-
-                    <h2 className="text-center fw-bold mb-5">
-                        Why Donate Blood?
-                    </h2>
-
-                    <div className="row">
-
-                        <div className="col-md-4 mb-4">
-
-                            <div className="card border-0 shadow-sm rounded-4 h-100">
-
-                                <div className="card-body text-center">
-
-                                    <i className="bi bi-heart-pulse-fill text-danger fs-1"></i>
-
-                                    <h4 className="mt-3">
-                                        Save Lives
-                                    </h4>
-
-                                    <p className="text-muted">
-                                        One donation can save multiple lives.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-md-4 mb-4">
-
-                            <div className="card border-0 shadow-sm rounded-4 h-100">
-
-                                <div className="card-body text-center">
-
-                                    <i className="bi bi-shield-check text-success fs-1"></i>
-
-                                    <h4 className="mt-3">
-                                        Safe Process
-                                    </h4>
-
-                                    <p className="text-muted">
-                                        Donation is completely safe and supervised.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="col-md-4 mb-4">
-
-                            <div className="card border-0 shadow-sm rounded-4 h-100">
-
-                                <div className="card-body text-center">
-
-                                    <i className="bi bi-hospital-fill text-primary fs-1"></i>
-
-                                    <h4 className="mt-3">
-                                        Trusted Hospitals
-                                    </h4>
-
-                                    <p className="text-muted">
-                                        Connected with verified hospitals and blood banks.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="mb-4">
+                        <h4 className="fw-bold text-dark mb-1">
+                            Donation Overview
+                        </h4>
+                        <p className="text-secondary mb-0">
+                            Your contribution to saving lives.
+                        </p>
                     </div>
-                </div>
-            </section>
 
-            <section className="py-5 bg-light">
-                <div className="container">
-
-                    <h2 className="text-center fw-bold mb-5">
-                        Benefits of Blood Donation
-                    </h2>
-
-                    <div className="row">
-
-                        <div className="col-md-3 mb-4">
-                            <div className="card h-100 border-0 shadow-sm rounded-4 text-center p-4">
-                                <i className="bi bi-heart-pulse-fill text-danger fs-1"></i>
-                                <h5 className="mt-3">Save Lives</h5>
-                                <p className="text-muted">
-                                    One blood donation can help save up to three lives.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-md-3 mb-4">
-                            <div className="card h-100 border-0 shadow-sm rounded-4 text-center p-4">
-                                <i className="bi bi-shield-check text-success fs-1"></i>
-                                <h5 className="mt-3">Health Check</h5>
-                                <p className="text muted">
-                                    Every donor receives a basic health screening before donating.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-md-3 mb-4">
-                            <div className="card h-100 border-0 shadow-sm rounded-4 text-center p-4">
-                                <i className="bi bi-droplet-fill text-primary fs-1"></i>
-                                <h5 className="mt-3">Supports Patients</h5>
-                                <p className="text-muted">
-                                    Blood is needed for surgeries, accidents and medical treatments.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-md-3 mb-4">
-                            <div className="card h-100 border-0 shadow-sm rounded-4 text-center p-4">
-                                <i className="bi bi-globe text-warning fs-1"></i>
-                                <h4 className="mt-3">Community Impact</h4>
-                                <p className="text-muted">
-                                    Regular donations help maintain a stable blood supply.
-                                </p>
-                            </div>
-                        </div>
+                    <div className="row g-4">
+                        <DashboardCard title="Total Donations" value="02" icon="bi-droplet-fill" color="#a51d30" />
+                        <DashboardCard title="Lives Impacted" value="06" icon="bi-heart-pulse-fill" color="#a51d30" />
+                        <DashboardCard title="Upcoming Donations" value="01" icon="bi-calendar2-check" color="#a51d30" />
+                        <DashboardCard title="Donor Status" value="Active" icon="bi-patch-check-fill" color="#a51d30" />
                     </div>
-                </div>
-            </section>
-
-            <footer className="bg-dark text-white text-center py-4">
-
-                <p className="mb-0">
-                    © 2026 BloodLink | Donate Blood, Save Lives
-                </p>
-            </footer>
-
-
-        </>
+                </main>
+            </div>
+        </div>
     );
-
 }
 
 export default DonorHome;

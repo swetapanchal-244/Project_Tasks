@@ -1,89 +1,127 @@
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 function RoleSelection() {
+    const roles = [
+        {
+            title: "Patient",
+            description:
+                "Request blood, track your blood requests and manage your profile.",
+            icon: "bi-person-heart",
+            path: "/patient-dashboard",
+            buttonText: "Continue as Patient",
+            type: "patient",
+        },
+        {
+            title: "Donor",
+            description:
+                "Donate blood, manage your donor profile and view your donation schedule.",
+            icon: "bi-heart-pulse-fill",
+            path: "/donor-dashboard",
+            buttonText: "Continue as Donor",
+            type: "donor",
+        },
+        {
+            title: "Admin",
+            description:
+                "Manage users, donors, blood requests, blood stock and reports.",
+            icon: "bi-shield-lock-fill",
+            path: "/admin-dashboard",
+            buttonText: "Continue as Admin",
+            type: "admin",
+        },
+    ];
+
     return (
-        <div
-            className="container-fluid d-flex align-items-center justify-content-center"
-            style={{
-                minHeight: "100vh",
-                background: "linear-gradient(135deg,#f8f9fa,#e9ecef)",
-            }}
-        >
-            <div className="text-center">
+        <main className="role-selection-page">
+            <div className="role-selection-glow role-glow-one"></div>
+            <div className="role-selection-glow role-glow-two"></div>
 
-                <i
-                    className="bi bi-heart-pulse-fill text-danger"
-                    style={{ fontSize: "80px" }}
-                ></i>
+            <div className="container role-selection-container">
 
-                <h1 className="fw-bold text-danger mt-3 mb-2">BloodLink</h1>
-                <h3 className="fw-bold mb-3">Blood Donation Management System</h3>
-
-                <p className="text-muted mb-5">
-                    Please select your role to continue
-                </p>
-
-                <div className="row justify-content-center g-4">
-
-                    <div className="col-md-5">
-                        <div
-                            className="card border-0 shadow-lg p-5 h-100"
-                            style={{
-                                borderRadius: "20px",
-                                transition: "0.3s",
-                            }}
-                        >
-                            <i
-                                className="bi bi-person-circle text-danger mb-3"
-                                style={{ fontSize: "55px" }}
-                            ></i>
-
-                            <h2 className="fw-bold">Patient</h2>
-
-                            <p className="text-muted mb-4">
-                                Request blood, become a donor and manage your profile.
-                            </p>
-
-                            <Link
-                                to="/donor-home"
-                                className="btn btn-danger btn-lg rounded-pill w-100"
-                            >
-                                Continue
-                            </Link>
-                        </div>
+                <header className="role-selection-header text-center">
+                    <div className="role-brand-icon">
+                        <i className="bi bi-heart-pulse-fill"></i>
                     </div>
 
-                    <div className="col-md-5">
+                    <p className="role-eyebrow">
+                        BLOODLINK COMMUNITY
+                    </p>
+
+                    <h1>
+                        Every Life <span>Matters.</span>
+                    </h1>
+
+                    <p className="role-subtitle">
+                        Blood Donation Management System
+                    </p>
+
+                    <div className="role-heading-divider"></div>
+
+                    <p className="role-instruction">
+                        Select your role to get started
+                    </p>
+                </header>
+
+                <div className="row justify-content-center g-4 role-cards-row">
+
+                    {roles.map((role, index) => (
                         <div
-                            className="card border-0 shadow-lg p-4 h-100"
+                            className="col-lg-4 col-md-6"
+                            key={role.type}
                             style={{
-                                borderRadius: "20px",
-                                transition: "0.3s",
+                                "--card-index": index,
                             }}
                         >
-                            <i
-                                className="bi bi-shield-lock-fill text-dark mb-3"
-                                style={{ fontSize: "55px" }}
-                            ></i>
-
-                            <h2 className="fw-bold">Admin</h2>
-
-                            <p className="text-muted mb-4">
-                                Manage users, donors, blood requests and reports.
-                            </p>
-
-                            <Link
-                                to="/admin-dashboard"
-                                className="btn btn-dark btn-lg rounded-pill w-100"
+                            <article
+                                className={`role-card role-card-${role.type}`}
                             >
-                                Continue
-                            </Link>
+                                <div className="role-card-top">
+                                    <span className="role-number">
+                                        0{index + 1}
+                                    </span>
+
+                                    <span className="role-card-badge">
+                                        {role.type === "patient"
+                                            ? "GET SUPPORT"
+                                            : role.type === "donor"
+                                                ? "SAVE LIVES"
+                                                : "MANAGEMENT"}
+                                    </span>
+                                </div>
+
+                                <div className="role-icon-wrapper">
+                                    <i
+                                        className={`bi ${role.icon}`}
+                                    ></i>
+                                </div>
+
+                                <h2>{role.title}</h2>
+
+                                <p className="role-card-description">
+                                    {role.description}
+                                </p>
+
+                                <div className="role-card-divider"></div>
+
+                                <Link
+                                    to={role.path}
+                                    className="role-continue-btn"
+                                >
+                                    <span>{role.buttonText}</span>
+                                    <i className="bi bi-arrow-right"></i>
+                                </Link>
+                            </article>
                         </div>
-                    </div>
+                    ))}
 
                 </div>
+
             </div>
-        </div>
+
+
+            <Footer />
+        </main>
     );
 }
 

@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import ProfileForm from "../components/ProfileForm";
 
-function Profile() {
+function DonorProfile() {
     const [profile, setProfile] = useState(() => {
-        const savedProfile = localStorage.getItem("patientProfile");
+        const savedProfile = localStorage.getItem("donorProfile");
 
         return savedProfile
             ? JSON.parse(savedProfile)
@@ -14,38 +14,18 @@ function Profile() {
                 email: "sweta@example.com",
                 phone: "",
                 bloodGroup: "O+",
-                age: "",
-                address: ""
+                address: "",
+                lastDonation: "",
+                availability: "Available"
             };
     });
 
-    const gradient =
-        "linear-gradient(115deg, #951629 0%, #b42332 55%, #a51d30 100%)";
+    const gradient = "linear-gradient(115deg, #951629, #b42332 55%, #a51d30)";
 
     const fields = [
-        {
-            name: "name",
-            label: "Full Name",
-            type: "text",
-            required: true
-        },
-        {
-            name: "email",
-            label: "Email Address",
-            type: "email",
-            required: true
-        },
-        {
-            name: "phone",
-            label: "Phone Number",
-            type: "tel"
-        },
-        {
-            name: "age",
-            label: "Age",
-            type: "number",
-            min: 1
-        },
+        { name: "name", label: "Full Name", type: "text" },
+        { name: "email", label: "Email Address", type: "email" },
+        { name: "phone", label: "Phone Number", type: "tel" },
         {
             name: "bloodGroup",
             label: "Blood Group",
@@ -53,31 +33,29 @@ function Profile() {
             options: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
         },
         {
-            name: "address",
-            label: "Address",
-            type: "text"
-        }
+            name: "lastDonation",
+            label: "Last Donation Date",
+            type: "date"
+        },
+        {
+            name: "availability",
+            label: "Donation Availability",
+            type: "select",
+            options: ["Available", "Unavailable"]
+        },
+        { name: "address", label: "Address", type: "text" }
     ];
-
-    const handleSave = (updatedProfile) => {
-        setProfile(updatedProfile);
-
-        localStorage.setItem(
-            "patientProfile",
-            JSON.stringify(updatedProfile)
-        );
-    };
 
     return (
         <div className="min-vh-100 bg-light">
             <Navbar
                 name={profile.name}
-                role="Patient"
+                role="Donor"
                 profileImage="/profile.jpg"
             />
 
             <div className="d-flex">
-                <Sidebar role="patient" />
+                <Sidebar role="donor" />
 
                 <main className="container-fluid p-3 p-lg-4">
                     <div
@@ -85,10 +63,9 @@ function Profile() {
                         style={{ background: gradient }}
                     >
                         <div className="card-body p-4">
-                            <h2 className="fw-bold mb-1">My Profile</h2>
-
+                            <h2 className="fw-bold mb-1">Donor Profile</h2>
                             <p className="mb-0">
-                                Manage your personal and blood group information.
+                                Manage your donor details and availability.
                             </p>
                         </div>
                     </div>
@@ -98,7 +75,7 @@ function Profile() {
                             <div className="d-flex flex-wrap align-items-center gap-3 mb-4">
                                 <img
                                     src="/profile.jpg"
-                                    alt="Patient profile"
+                                    alt="Donor profile"
                                     width="82"
                                     height="82"
                                     className="rounded-circle border border-3 border-danger-subtle"
@@ -109,9 +86,8 @@ function Profile() {
                                     <h4 className="fw-bold mb-1">
                                         {profile.name}
                                     </h4>
-
                                     <span className="badge rounded-pill px-3 py-2 text-bg-danger">
-                                        Patient
+                                        Blood Donor
                                     </span>
                                 </div>
                             </div>
@@ -122,7 +98,13 @@ function Profile() {
                                 title="Personal Information"
                                 initialData={profile}
                                 fields={fields}
-                                onSave={handleSave}
+                                onSave={(updatedProfile) => {
+                                    setProfile(updatedProfile);
+                                    localStorage.setItem(
+                                        "donorProfile",
+                                        JSON.stringify(updatedProfile)
+                                    );
+                                }}
                             />
                         </div>
                     </div>
@@ -132,4 +114,4 @@ function Profile() {
     );
 }
 
-export default Profile;
+export default DonorProfile;
