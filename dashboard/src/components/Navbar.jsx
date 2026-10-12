@@ -14,9 +14,9 @@ function Navbar({ name, role, profileImage }) {
                     <span
                         className="d-flex align-items-center justify-content-center rounded-3"
                         style={{
-                            width: "54px",
-                            height: "54px",
-                            backgroundColor: "#e63346",
+                            width: "50px",
+                            height: "48px",
+                            backgroundColor: "#951629",
                             flexShrink: 0
                         }}
                     >
@@ -35,7 +35,7 @@ function Navbar({ name, role, profileImage }) {
                         }}
                     >
                         <span className="text-dark">Blood</span>
-                        <span style={{ color: "#e63346" }}>Link</span>
+                        <span style={{ color: "#951629" }}>Link</span>
                     </span>
                 </Link>
 

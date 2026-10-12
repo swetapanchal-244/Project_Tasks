@@ -11,15 +11,19 @@ const Sidebar = ({ role }) => {
 
     const patientMenu = [
         { icon: "bi-speedometer2", text: "Dashboard", path: "/patient-dashboard" },
+        { icon: "bi-search", text: "Blood Availability", path: "/blood-availability" },
         { icon: "bi-droplet-fill", text: "Blood Requests", path: "/blood-requests" },
-        { icon: "bi-person-fill", text: "Profile", path: "/profile" }
+        { icon: "bi-person-fill", text: "Profile", path: "/profile" },
+        { icon: "bi-box-arrow-right", text: "Logout", path: "/patient-logout" }
     ];
 
     const donorMenu = [
         { icon: "bi-speedometer2", text: "Dashboard", path: "/donor-dashboard" },
         { icon: "bi-calendar-check-fill", text: "Donation Scheduling", path: "/donor-donation-scheduling" },
         { icon: "bi-heart-pulse-fill", text: "Donation Request", path: "/donor-donation-request" },
-        { icon: "bi-person-fill", text: "Profile", path: "/donor-profile" }
+        { icon: "bi-clock-history", text: "Donation History", path: "/donation-history" },
+        { icon: "bi-person-fill", text: "Profile", path: "/donor-profile" },
+        { icon: "bi-box-arrow-right", text: "Logout", path: "/donor-logout" }
     ];
 
     const renderLinks = (items) => (
@@ -80,7 +84,7 @@ const Sidebar = ({ role }) => {
                     >
                         <div className="accordion-body p-2">
                             {renderLinks([
-                                { icon: "bi-person-fill", text: "Manage Users", path: "/manage-users" },
+                                { icon: "bi-person-fill", text: "Manage Users", path: "/skeleton-demo" },
                                 { icon: "bi-heart-pulse-fill", text: "Manage Donors", path: "/manage-donors" }
                             ])}
                         </div>
@@ -120,7 +124,7 @@ const Sidebar = ({ role }) => {
             {renderLinks([
                 { icon: "bi-bar-chart-fill", text: "Reports", path: "/reports" },
                 { icon: "bi-person-fill", text: "Profile", path: "/admin-profile" },
-                { icon: "bi-box-arrow-right", text: "Logout", path: "/logout" }
+                { icon: "bi-box-arrow-right", text: "Logout", path: "/admin-logout" }
             ])}
         </nav>
     );

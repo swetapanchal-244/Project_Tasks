@@ -13,6 +13,9 @@ import Notification from "./components/Notification";
 import Registration from "./pages/Registration";
 import ForgotPassword from "./pages/ForgotPassword";
 import DonorProfile from "./pages/DonorProfile";
+import BloodAvailability from "./pages/BloodAvailability";
+import SkeletonDemo from "./pages/SkeletonDemo";
+import DonationHistory from "./pages/DonationHistory";
 
 function App() {
   return (
@@ -69,6 +72,18 @@ function App() {
         <Route
           path="/donor-profile"
           element={<DonorProfile />}
+        />
+        <Route
+          path="/blood-availability"
+          element={<BloodAvailability />}
+        />
+        <Route
+          path="/skeleton-demo"
+          element={<SkeletonDemo />}
+        />
+        <Route
+          path="/donation-history"
+          element={<DonationHistory />}
         />
       </Routes>
 
