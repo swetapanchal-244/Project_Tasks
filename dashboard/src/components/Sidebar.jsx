@@ -5,8 +5,11 @@ const Sidebar = ({ role }) => {
     const sidebarStyle = {
         width: "260px",
         minHeight: "100vh",
+        height: "auto",
         flexShrink: 0,
-        background: "linear-gradient(180deg, #951629 0%, #b42332 55%, #861426 100%)"
+        alignSelf: "stretch",
+        background:
+            "linear-gradient(180deg, #951629 0%, #b42332 55%, #861426 100%)"
     };
 
     const patientMenu = [

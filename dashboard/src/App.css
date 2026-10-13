@@ -941,3 +941,207 @@ body {
         background-position: -200% 0;
     }
 }
+
+.admin-layout {
+    min-width: 0;
+}
+
+.admin-sidebar-wrapper {
+    flex-shrink: 0;
+}
+
+.admin-main {
+    min-width: 0;
+}
+
+.admin-menu-toggle {
+    align-self: flex-start;
+    margin: 12px 12px 0;
+}
+
+@media (max-width: 991.98px) {
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    .admin-sidebar-wrapper {
+        display: none;
+        width: 100%
+    }
+
+    .admin-sidebar-wrapper.sidebar-open {
+        display: block;
+    }
+
+    .admin-sidebar-wrapper aside {
+        width: 100% !important;
+        min-height: auto !important;
+    }
+
+    .admin-main {
+        width: 100%
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-main h2 {
+        font-size: 1.5rem;
+    }
+
+    .admin-min h4 {
+        font-size: 1.15rem;
+    }
+}
+
+.patient-layout {
+    min-width: 0;
+}
+
+.patient-sidebar-wrapper {
+    flex-shrink: 0;
+}
+
+.patient-main {
+    min-width: 0;
+}
+
+.patient-menu-toggle {
+    align-self: flex-start;
+    margin: 12px 12px 0;
+}
+
+@media (max-width: 991.98px) {
+    .patient-layout {
+        flex-direction: column;
+    }
+
+    .patient-sidebar-wrapper {
+        display: none;
+        width: 100%;
+    }
+
+    .patient-sidebar-wrapper.sidebar-open {
+        display: block;
+    }
+
+    .patient-sidebar-wrapper aside {
+        width: 100% !important;
+        min-height: auto !important;
+    }
+
+    .patient-main {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .patient-main h2 {
+        font-size: 1.4rem;
+        overflow-wrap: anywhere;
+    }
+
+    .patient-main h4 {
+        font-size: 1.15rem;
+    }
+
+    .patient-main .card-body p {
+        line-height: 1.6;
+    }
+}
+
+.dashboard-stat-card {
+    border-top: 3px solid #a51d30 !important;
+    transition: transform 0.25 ease, box-shadow 0.25 ease;
+}
+
+.dashboard-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.75rem 1.5rem rgba(149, 22, 41, 0.12) !important;
+}
+
+.dashboard-state-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+}
+
+.dashboard-stat-title {
+    font-size: 0.95rem;
+}
+
+.dashboard-stat-value {
+    font-size: 1.9rem;
+    overflow-wrap: anywhere;
+}
+
+.admin-sidebar-wrapper,
+.patient-sidebar-wrapper,
+.donor-sidebar-wrapper {
+    align-self: stretch;
+    min-height: calc(100vh - 75px);
+}
+
+.admin-sidebar-wrapper aside,
+.patient-sidebar-wrapper aside,
+.donor-sidebar-wrapper aside {
+    min-height: calc(100vh - 75px) !important;
+    height: 100% !important;
+}
+
+.donor-layout {
+    min-width: 0;
+}
+
+.donor-sidebar-wrapper {
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.donor-main {
+    min-width: 0;
+    width: 100%;
+}
+
+.donor-menu-toggle {
+    align-self: flex-start;
+}
+
+@media (max-width: 991.98px) {
+    .donor-layout {
+        flex-direction: column;
+    }
+
+    .donor-sidebar-wrapper {
+        display: none;
+        width: 100%;
+    }
+
+    .donor-sidebar-wrapper.sidebar-open {
+        display: block;
+    }
+
+    .donor-sidebar-wrapper aside {
+        width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    .donor-main {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .donor-main h2 {
+        font-size: 1.4rem;
+        overflow-wrap: anywhere;
+    }
+
+    .donor-main h4 {
+        font-size: 1.15rem;
+    }
+
+    .donor-main .card-body p {
+        line-height: 1.6;
+    }
+}

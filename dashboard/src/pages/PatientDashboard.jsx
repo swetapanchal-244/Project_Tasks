@@ -1,8 +1,11 @@
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import DashboardCard from "../components/DashboardCard";
 
 function PatientDashboard() {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
     const gradient =
         "linear-gradient(115deg, #951629 0%, #b42332 55%, #a51d30 100%)";
 
@@ -21,15 +24,31 @@ function PatientDashboard() {
                 profileImage="/profile.jpg"
             />
 
-            <div className="d-flex flex-grow-1">
-                <Sidebar role="patient" activeMenu="Dashboard" />
+            <div className="d-flex flex-grow-1 patient-layout">
+               
+                <button
+                    className="btn btn-danger d-lg-none patient-menu-toggle"
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                    aria-label="Toggle sidebar"
+                    aria-expanded={sidebarOpen}
+                >
+                    <i className="bi bi-list fs-4"></i>
+                    <span className="ms-2">Menu</span>
+                </button>
 
-                <main className="container-fluid p-3 p-lg-4">
+                <div
+                    className={`patient-sidebar-wrapper ${sidebarOpen ? "sidebar-open" : ""
+                        }`}
+                >
+                    <Sidebar role="patient" activeMenu="Dashboard" />
+                </div>
+
+                <main className="flex-grow-1 min-w-0 p-3 p-md-4 patient-main">
                     <div
                         className="card border-0 rounded-4 shadow-sm text-white mb-4"
                         style={{ background: gradient }}
                     >
-                        <div className="card-body p-4 p-lg-5">
+                        <div className="card-body p-3 p-md-4 p-lg-5">
                             <span className="badge bg-white text-danger mb-3">
                                 PATIENT DASHBOARD
                             </span>
@@ -55,7 +74,7 @@ function PatientDashboard() {
                         </p>
                     </div>
 
-                    <div className="row g-4">
+                    <div className="row g-3 g-md-4">
                         <DashboardCard
                             title="Total Blood Requests"
                             value="02"
