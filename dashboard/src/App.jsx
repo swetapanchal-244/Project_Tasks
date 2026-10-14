@@ -16,6 +16,8 @@ import DonorProfile from "./pages/DonorProfile";
 import BloodAvailability from "./pages/BloodAvailability";
 import SkeletonDemo from "./pages/SkeletonDemo";
 import DonationHistory from "./pages/DonationHistory";
+import BloodBankMap from "./pages/BloodBankMap";
+import AlertDemo from "./pages/ALertDemo";
 
 function App() {
   return (
@@ -84,6 +86,14 @@ function App() {
         <Route
           path="/donation-history"
           element={<DonationHistory />}
+        />
+        <Route
+          path="/blood-bank-map"
+          element={<BloodBankMap />}
+        />
+        <Route
+          path="/alert-demo"
+          element={<AlertDemo />}
         />
       </Routes>
 
