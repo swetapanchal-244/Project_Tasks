@@ -1145,3 +1145,293 @@ body {
         line-height: 1.6;
     }
 }
+
+.scroll-to-top-btn {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    color: #ffffff;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 5px 15px rgba(149, 22, 41, 0.25);
+    transition: all 0.3s ease;
+}
+
+.scroll-to-top-btn:hover {
+    background: var(--primary-dark);
+    color: #ffffff;
+    transform: translateY(-5px);
+}
+
+@media (max-width: 576px) {
+    .scroll-to-top-btn {
+        width: 42px;
+        height: 42px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 19px;
+    }
+}
+
+:root {
+    --page-bg: #f5f7fb;
+    --surface-bg: #ffffff;
+    --text-primary: #222222;
+    --text-secondary: #777777;
+    --border-color: #e8e8e8;
+    --input-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    --background-color: #15171c;
+    --white-color: #22252d;
+    --text-color: #f1f1f1;
+    --muted-color: #b0b0b0;
+
+    --page-bg: #15171c;
+    --surface-bg: #22252d;
+    --text-primary: #f1f1f1;
+    --text-secondary: #b0b0b0;
+    --border-color: #383c46;
+    --input-bg: #2b2f39;
+
+    color-scheme: dark;
+}
+
+body {
+    background: var(--page-bg);
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] .registration-section,
+[data-theme="dark"] .forgot-password-section {
+    background: linear-gradient(135deg, #191b22, #252832);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .login-card,
+[data-theme="dark"] .forgot-password-card,
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .role-card,
+[data-theme="dark"] .dashboard-stat-card {
+    background: var(--surface-bg) !important;
+    color: var(--text-primary);
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] p,
+[data-theme="dark"] label,
+[data-theme="dark"] .stat-card-value,
+[data-theme="dark"] .role-card h2,
+[data-theme="dark"] .registration-section .brand-box h5 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .stat-card-title,
+[data-theme="dark"] .role-card-description,
+[data-theme="dark"] .role-subtitle,
+[data-theme="dark"] .registration-section .brand-box p {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .input-group-text {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: #a0a0a0;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .role-selection-page {
+    background: linear-gradient(135deg, #17191f, #242731);
+}
+
+[data-theme="dark"] .role-card-divider,
+[data-theme="dark"] .stat-card-bottom {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .role-number {
+    color: #b0b0b0;
+}
+
+[data-theme="dark"] .stat-card-indicator {
+    background: #30343e;
+    color: #eeeeee;
+}
+
+[data-theme="dark"] .table {
+    --bs-table-bg: #22252d;
+    --bs-table-color: #f1f1f1;
+    --bs-table-border-color: #383c46;
+    --bs-table-striped-bg: #292d36;
+    --bs-table-hover-bg: #303540;
+}
+
+[data-theme="dark"] .accordion-item,
+[data-theme="dark"] .accordion-button {
+    background-color: #22252d;
+    color: #f1f1f1;
+    border-color: #383c46;
+}
+
+.theme-toggle-btn {
+    position: static;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 30px;
+    background: var(--primary-gradient);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(149, 22, 41, 0.2);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 576px) {
+    .theme-toggle-btn {
+        right: 15px;
+        bottom: 70px;
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+}
+
+[data-theme="dark"] .dashboard-stat-title,
+[data-theme="dark"] .dashboard-stat-value,
+[data-theme="dark"] .stat-card-value {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .stat-card-bottom,
+[data-theme="dark"] .stat-card-label {
+    color: #c4c6ce !important;
+}
+
+[data-theme="dark"] .dashboard-stat-card .card-body {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .admin-main,
+[data-theme="dark"] .patient-main,
+[data-theme="dark"] .donot-main {
+    background-color: #15171c;
+    color: #f1f1f1;
+}
+
+[data-theme="dark"] .navbar {
+    background-color: #22252d !important;
+    border-color: #383c46 !important;
+}
+
+[data-theme="dark"] .navbar .text-dark {
+    color: #f1f1f1 !important;
+}
+
+[data-theme="dark"] .navbar .text-secondary {
+    color: #b0b0b0 !important;
+}
+
+[data-theme="dark"] .navbar .btn-light {
+    background-color: #30343e;
+    color: #ffffff;
+    border-color: #383c46;
+}
+
+[data-theme="dark"] .navbar .input-group-text,
+[data-theme="dark"] .navbar .form-control {
+    background-color: #30343e !important;
+    color: #ffffff !important;
+    border-color: #454a55 !important;
+}
+
+[data-theme="dark"] .navbar .form-control::placeholder {
+    color: #b0b0b0;
+}
+
+[data-theme="dark"] .navbar .vr {
+    border-color: #777;
+}
+
+[data-theme="dark"] .admin-main h1,
+[data-theme="dark"] .admin-main h2,
+[data-theme="dark"] .admin-main h3,
+[data-theme="dark"] .admin-main h4,
+[data-theme="dark"] .admin-main h5,
+[data-theme="dark"] .admin-main h6 {
+    color: #f5f5f5 !important;
+}
+
+[data-theme="dark"] .patient-main h1,
+[data-theme="dark"] .patient-main h2,
+[data-theme="dark"] .patient-main h3,
+[data-theme="dark"] .patient-main h4,
+[data-theme="dark"] .donor-main h1,
+[data-theme="dark"] .donor-main h2,
+[data-theme="dark"] .donor-main h3,
+[data-theme="dark"] .donor-main h4 {
+    color: #f5f5f5 !important;
+}
+
+[data-theme="dark"] .admin-main p,
+[data-theme="dark"] .patient-main p,
+[data-theme="dark"] .donor-main p {
+    color: #bfc3cc;
+}
+
+[data-theme="dark"] .admin-main .text-dark,
+[data-theme="dark"] .patient-main .text-dark,
+[data-theme="dark"] .donor-main .text-dark {
+    color: #f5f5f5 !important;
+}
+
+.theme-toggle-floating {
+    position: fixed;
+    top: 110px;
+    right: 25px;
+    z-index: 10000;
+}
+
+@media (max-width: 576px) {
+    .theme-toggle-floating {
+        top: 100px;
+        right: 15px;
+    }
+}

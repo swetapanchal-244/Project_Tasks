@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 function Navbar({ name, role, profileImage }) {
     return (
@@ -70,7 +71,11 @@ function Navbar({ name, role, profileImage }) {
                         </div>
                     </form>
 
+
                     <div className="d-flex align-items-center gap-3 ms-lg-3 mt-2 mt-lg-0">
+
+                        <ThemeToggle />
+
                         <button
                             type="button"
                             className="btn btn-light position-relative"
@@ -103,7 +108,9 @@ function Navbar({ name, role, profileImage }) {
                                 </div>
                             </div>
                         </Link>
+
                     </div>
+
                 </div>
             </div>
         </nav>

@@ -18,12 +18,18 @@ import SkeletonDemo from "./pages/SkeletonDemo";
 import DonationHistory from "./pages/DonationHistory";
 import BloodBankMap from "./pages/BloodBankMap";
 import AlertDemo from "./pages/ALertDemo";
+import ScrollToTop from "./components/ScrollToTop";
+import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
   return (
     <BrowserRouter>
 
       <Notification />
+
+      <ScrollToTop />
+
+      <ThemeToggle />
 
       <Routes>
 

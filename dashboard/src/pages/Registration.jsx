@@ -1,112 +1,83 @@
 import { useState } from "react";
 import BloodGroupDropdown from "../components/BloodGroupDropdown";
 import Footer from "../components/Footer";
+import useForm from "../hooks/useForm";
 
 function Registration() {
 
-    const [formData, setFormData] = useState({
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    const initialValues = {
         fullName: "",
         email: "",
         phone: "",
         bloodGroup: "",
         password: "",
         confirmPassword: "",
-    });
-
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
     };
 
-    const handleSubmit = (e) => {
+    const validateForm = (values) => {
+        const errors = {};
 
-        e.preventDefault();
-
-        if (formData.fullName.trim() === "") {
-            alert("Please enter your full name.");
-            return;
-        }
-
-        if (formData.fullName.trim().split(" ").length < 2) {
-            alert("Please enter your first and last name.");
-            return;
-        }
-
-        if (formData.email.trim() === "") {
-            alert("Please enter your email.");
-            return;
+        if (values.fullName.trim() === "") {
+            errors.fullName = "Please enter your full name.";
+        } else if (values.fullName.trim().split(/\s+/).length < 2) {
+            errors.fullName = "Please enter your first and last name.";
         }
 
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!emailPattern.test(formData.email)) {
-            alert("Please enter a valid email address.");
-            return;
-        }
-
-        if (formData.phone.trim() === "") {
-            alert("Please enter your mobile number.");
-            return;
+        if (values.email.trim() === "") {
+            errors.email = "Please enter your email.";
+        } else if (!emailPattern.test(values.email)) {
+            errors.email = "Please enter a valid email address.";
         }
 
         const phonePattern = /^[6-9]\d{9}$/;
 
-        if (!phonePattern.test(formData.phone)) {
-            alert("Please enter a valid 10-digit mobile number.");
-            return;
+        if (values.phone.trim() === "") {
+            errors.phone = "Please enter your mobile number.";
+        } else if (!phonePattern.test(values.phone)) {
+            errors.phone = "Please enter a valid 10-digit mobile number.";
         }
 
-        if (formData.bloodGroup === "") {
-            alert("Please select your blood group.");
-            return;
+        if (values.bloodGroup === "") {
+            errors.bloodGroup = "Please select your blood group.";
         }
 
-        if (formData.password.trim() === "") {
-            alert("Please create a password.");
-            return;
+        if (values.password.trim() === "") {
+            errors.password = "Please create a password.";
+        } else if (values.password.length < 8) {
+            errors.password = "Password must be at least 8 characters.";
         }
 
-        if (formData.password.length < 8) {
-            alert("Password must be at least 8 characters.");
-            return;
+        if (values.confirmPassword.trim() === "") {
+            errors.confirmPassword = "Please confirm your password.";
+        } else if (values.password !== values.confirmPassword) {
+            errors.confirmPassword = "Passwords do not match.";
         }
 
-        if (formData.confirmPassword.trim() === "") {
-            alert("Please confirm your password.");
-            return;
-        }
+        return errors;
+    };
 
-        if (formData.password !== formData.confirmPassword) {
-            alert("Passwords do not match.");
-            return;
-        }
-
+    const {
+        values: formData,
+        errors,
+        handleChange,
+        handleSubmit,
+        resetForm,
+    } = useForm(initialValues, validateForm, () => {
         alert("Registration Successful! ❤️");
 
-        setFormData({
-            fullName: "",
-            email: "",
-            phone: "",
-            bloodGroup: "",
-            password: "",
-            confirmPassword: "",
-        });
+        resetForm();
 
         setShowPassword(false);
         setShowConfirmPassword(false);
-    };
+    });
 
     return (
-
         <>
-
             <section className="registration-section">
 
                 <div className="container">
@@ -191,6 +162,12 @@ function Registration() {
 
                                         </div>
 
+                                        {errors.fullName && (
+                                            <small className="text-danger">
+                                                {errors.fullName}
+                                            </small>
+                                        )}
+
                                     </div>
 
                                     <div className="mb-3">
@@ -215,6 +192,12 @@ function Registration() {
                                             />
 
                                         </div>
+
+                                        {errors.email && (
+                                            <small className="text-danger">
+                                                {errors.email}
+                                            </small>
+                                        )}
 
                                     </div>
 
@@ -241,6 +224,12 @@ function Registration() {
 
                                         </div>
 
+                                        {errors.phone && (
+                                            <small className="text-danger">
+                                                {errors.phone}
+                                            </small>
+                                        )}
+
                                     </div>
 
                                     <div className="mb-3">
@@ -252,6 +241,12 @@ function Registration() {
                                             label="Blood Group"
                                             required
                                         />
+
+                                        {errors.bloodGroup && (
+                                            <small className="text-danger">
+                                                {errors.bloodGroup}
+                                            </small>
+                                        )}
 
                                     </div>
 
@@ -291,6 +286,12 @@ function Registration() {
                                             </button>
 
                                         </div>
+
+                                        {errors.password && (
+                                            <small className="text-danger">
+                                                {errors.password}
+                                            </small>
+                                        )}
 
                                     </div>
 
@@ -333,6 +334,12 @@ function Registration() {
 
                                         </div>
 
+                                        {errors.confirmPassword && (
+                                            <small className="text-danger">
+                                                {errors.confirmPassword}
+                                            </small>
+                                        )}
+
                                     </div>
 
                                     <button
@@ -346,7 +353,6 @@ function Registration() {
                                     >
                                         Create Account
                                     </button>
-
 
                                     <div className="text-center mt-4">
 
@@ -371,9 +377,7 @@ function Registration() {
             </section>
 
             <Footer />
-
         </>
-
     );
 }
 
