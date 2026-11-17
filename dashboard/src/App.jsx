@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import RoleSelection from "./pages/RoleSelection";
 import DonorHome from "./pages/DonorHome";
@@ -20,6 +20,21 @@ import BloodBankMap from "./pages/BloodBankMap";
 import AlertDemo from "./pages/ALertDemo";
 import ScrollToTop from "./components/ScrollToTop";
 import ThemeToggle from "./components/ThemeToggle";
+import PatientRequestHistory from "./pages/PatientRequestHistory";
+
+function StandaloneThemeToggle() {
+  const { pathname } = useLocation();
+
+  const standalonePages = [
+    "/",
+    "/registration",
+    "/forgot-password"
+  ];
+
+  return standalonePages.includes(pathname)
+    ? <ThemeToggle />
+    : null;
+}
 
 function App() {
   return (
@@ -29,7 +44,7 @@ function App() {
 
       <ScrollToTop />
 
-      <ThemeToggle />
+      <StandaloneThemeToggle />
 
       <Routes>
 
@@ -44,6 +59,10 @@ function App() {
         <Route
           path="/patient-dashboard"
           element={<PatientDashboard />}
+        />
+        <Route
+          path="/patient-request-history"
+          element={<PatientRequestHistory />}
         />
         <Route
           path="/admin-dashboard"

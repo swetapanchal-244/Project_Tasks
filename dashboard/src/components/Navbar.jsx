@@ -91,7 +91,7 @@ function Navbar({ name, role, profileImage }) {
 
                         <Link to="/profile" className="d-flex align-items-center gap-2 text-decoration-none">
                             <img
-                                src={profileImage || "/profile.jpg"}
+                                src={profileImage || "/profile.webp"}
                                 alt="Profile"
                                 width="42"
                                 height="42"

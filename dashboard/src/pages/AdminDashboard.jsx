@@ -14,7 +14,7 @@ function AdminDashboard() {
             <Navbar
                 name="Admin"
                 role="Administrator"
-                profileImage="/profile.jpg"
+                profileImage="/profile.webp"
             />
 
             <div className="d-flex flex-grow-1 admin-layout">

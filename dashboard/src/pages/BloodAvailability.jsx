@@ -74,7 +74,7 @@ function BloodAvailability() {
 
     return (
         <div className="min-vh-100 bg-light">
-            <Navbar role="Patient" profileImage="/profile.jpg" />
+            <Navbar role="Patient" profileImage="/profile.webp" />
 
             <div className="d-flex">
                 <Sidebar role="patient" />

@@ -1,11 +1,12 @@
 
 import { useState } from "react";
 import {
-    flexRender,
     getCoreRowModel,
     getPaginationRowModel,
     useReactTable,
 } from "@tanstack/react-table";
+
+import ReusableTable from "../components/ReusableTable";
 
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
@@ -92,7 +93,7 @@ function BloodStock() {
             <Navbar
                 name="Admin"
                 role="Administrator"
-                profileImage="/profile.jpg"
+                profileImage="/profile.webp"
             />
 
             <div className="d-flex">
@@ -117,52 +118,10 @@ function BloodStock() {
                                 ></i>
                             </div>
 
-                            <div className="table-responsive">
-                                <table className="table table-hover align-middle mb-0">
-                                    <thead className="table-light">
-                                        {table.getHeaderGroups().map((headerGroup) => (
-                                            <tr key={headerGroup.id}>
-                                                {headerGroup.headers.map((header) => (
-                                                    <th key={header.id}>
-                                                        {header.isPlaceholder
-                                                            ? null
-                                                            : flexRender(
-                                                                header.column.columnDef.header,
-                                                                header.getContext()
-                                                            )}
-                                                    </th>
-                                                ))}
-                                            </tr>
-                                        ))}
-                                    </thead>
-
-                                    <tbody>
-                                        {pageRows.length > 0 ? (
-                                            pageRows.map((row) => (
-                                                <tr key={row.id}>
-                                                    {row.getVisibleCells().map((cell) => (
-                                                        <td key={cell.id}>
-                                                            {flexRender(
-                                                                cell.column.columnDef.cell,
-                                                                cell.getContext()
-                                                            )}
-                                                        </td>
-                                                    ))}
-                                                </tr>
-                                            ))
-                                        ) : (
-                                            <tr>
-                                                <td
-                                                    colSpan={columns.length}
-                                                    className="text-center py-4"
-                                                >
-                                                    No blood stock records found.
-                                                </td>
-                                            </tr>
-                                        )}
-                                    </tbody>
-                                </table>
-                            </div>
+                            <ReusableTable
+                                table={table}
+                                emptyMessage="No blood stock records found."
+                            />
 
                             <div className="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mt-4">
                                 <div className="d-flex align-items-center gap-2">
@@ -217,8 +176,8 @@ function BloodStock() {
                                             <li
                                                 key={pageIndex}
                                                 className={`page-item ${pagination.pageIndex === pageIndex
-                                                        ? "active"
-                                                        : ""
+                                                    ? "active"
+                                                    : ""
                                                     }`}
                                             >
                                                 <button

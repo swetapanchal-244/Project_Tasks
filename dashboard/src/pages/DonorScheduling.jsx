@@ -18,7 +18,7 @@ function DonorScheduling() {
             <Navbar
                 name="Sweta"
                 role="Donor"
-                profileImage="/profile.jpg"
+                profileImage="/profile.webp"
             />
 
             <div className="d-flex">

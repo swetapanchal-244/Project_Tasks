@@ -39,7 +39,7 @@ function SkeletonDemo() {
 
     return (
         <div className="min-vh-100 bg-light">
-            <Navbar role="Admin" profileImage="/profile.jpg" />
+            <Navbar role="Admin" profileImage="/profile.webp" />
 
             <div className="d-flex">
                 <Sidebar role="admin" />

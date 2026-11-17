@@ -51,7 +51,7 @@ function DonorProfile() {
             <Navbar
                 name={profile.name}
                 role="Donor"
-                profileImage="/profile.jpg"
+                profileImage="/profile.webp"
             />
 
             <div className="d-flex">
@@ -74,7 +74,7 @@ function DonorProfile() {
                         <div className="card-body p-4 p-lg-5">
                             <div className="d-flex flex-wrap align-items-center gap-3 mb-4">
                                 <img
-                                    src="/profile.jpg"
+                                    src="/profile.webp"
                                     alt="Donor profile"
                                     width="82"
                                     height="82"

@@ -1435,3 +1435,36 @@ body {
         right: 15px;
     }
 }
+
+.resuable-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+.resuable-table-wrapper .table {
+    min-width: 600px;
+}
+
+.reusable-table-wrapper thead th {
+    background: #fbe7ea;
+    color: #951629;
+    padding: 15px;
+    white-space: nowrap;
+}
+
+.reusable-table-wrapper tbody td {
+    padding: 14px 15px;
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .reusable-table-wrapper thead th {
+    background: #38303a;
+    color: #ffb6c1;
+}
+
+[data-theme="dark"] .reusable-table-wrapper tbody td {
+    background: #22252d;
+    color: #f1f1f1;
+    border-color: #383c46;
+}

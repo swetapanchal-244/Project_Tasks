@@ -21,7 +21,7 @@ function DonorHome() {
             <Navbar
                 name={donorName}
                 role="Donor"
-                profileImage="/profile.jpg"
+                profileImage="/profile.webp"
             />
 
             <div className="d-flex flex-grow-1 donor-layout">

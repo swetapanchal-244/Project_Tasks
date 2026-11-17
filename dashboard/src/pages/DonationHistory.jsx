@@ -57,7 +57,7 @@ function DonationHistory() {
         <div className="min-vh-100 bg-light">
             <Navbar
                 role="Donor"
-                profileImage="/profile.jpg"
+                profileImage="/profile.webp"
             />
 
             <div className="d-flex">

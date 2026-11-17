@@ -16,6 +16,7 @@ const Sidebar = ({ role }) => {
         { icon: "bi-speedometer2", text: "Dashboard", path: "/patient-dashboard" },
         { icon: "bi-search", text: "Blood Availability", path: "/blood-availability" },
         { icon: "bi-droplet-fill", text: "Blood Requests", path: "/blood-requests" },
+        { icon: "bi-clock-history", text: "Request History", path: "/patient-request-history" },
         { icon: "bi-person-fill", text: "Profile", path: "/profile" },
         { icon: "bi-box-arrow-right", text: "Logout", path: "/patient-logout" }
     ];

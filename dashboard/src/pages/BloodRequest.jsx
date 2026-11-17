@@ -1,4 +1,7 @@
 
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { showSuccess } from "../components/Notification";
@@ -6,12 +9,71 @@ import FormInput from "../components/FormInput";
 import BloodGroupDropdown from "../components/BloodGroupDropdown";
 
 function BloodRequest() {
+    const navigate = useNavigate();
+
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const [formData, setFormData] = useState({
+        patientName: "",
+        bloodGroup: "",
+        requiredUnits: "",
+        urgency: "",
+        hospitalName: "",
+        requiredDate: "",
+        additionalInformation: ""
+    });
+
     const gradient =
         "linear-gradient(115deg, #951629 0%, #b42332 55%, #a51d30 100%)";
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const existingRequests = JSON.parse(
+            localStorage.getItem("patientRequests") || "[]"
+        );
+
+        const newRequest = {
+            ...formData,
+            requestId: `BR-${Date.now().toString().slice(-6)}`,
+            requestDate: new Date().toLocaleDateString("en-IN"),
+            status: "Pending"
+        };
+
+        const updatedRequests = [
+            newRequest,
+            ...existingRequests
+        ];
+
+        localStorage.setItem(
+            "patientRequests",
+            JSON.stringify(updatedRequests)
+        );
+
         showSuccess("Blood request submitted successfully!");
+
+        setFormData({
+            patientName: "",
+            bloodGroup: "",
+            requiredUnits: "",
+            urgency: "",
+            hospitalName: "",
+            requiredDate: "",
+            additionalInformation: ""
+        });
+
+        setTimeout(() => {
+            navigate("/patient-request-history");
+        }, 1000);
     };
 
     return (
@@ -19,13 +81,27 @@ function BloodRequest() {
             <Navbar
                 name="Sweta"
                 role="Patient"
-                profileImage="/profile.jpg"
+                profileImage="/profile.webp"
             />
 
-            <div className="d-flex">
-                <Sidebar role="patient" />
+            <div className="d-flex patient-layout">
 
-                <main className="container-fluid p-3 p-lg-4">
+                <button
+                    className="btn btn-danger d-lg-none patient-menu-toggle"
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                    aria-label="Toggle sidebar"
+                    aria-expanded={sidebarOpen}
+                >
+                    <i className="bi bi-list fs-4"></i>
+                    <span className="ms-2">Menu</span>
+                </button>
+
+                <div className={`patient-sidebar-wrapper ${sidebarOpen ? "sidebar-open" : ""}`}>
+                    <Sidebar role="patient" />
+                </div>
+
+                <main className="container-fluid p-3 p-lg-4 min-w-0">
+
                     <div
                         className="card border-0 rounded-4 shadow-sm text-white mb-4"
                         style={{ background: gradient }}
@@ -47,6 +123,7 @@ function BloodRequest() {
 
                     <div className="card border-0 rounded-4 shadow-sm">
                         <div className="card-body p-4 p-lg-5">
+
                             <div className="d-flex align-items-center gap-3 mb-4">
                                 <div
                                     className="d-flex align-items-center justify-content-center rounded-3"
@@ -74,17 +151,24 @@ function BloodRequest() {
 
                             <form onSubmit={handleSubmit}>
                                 <div className="row g-4">
+
                                     <div className="col-md-6">
                                         <FormInput
                                             label="Patient Name"
                                             name="patientName"
                                             placeholder="Enter patient name"
+                                            value={formData.patientName}
+                                            onChange={handleChange}
                                             required
                                         />
                                     </div>
 
                                     <div className="col-md-6">
-                                        <BloodGroupDropdown required />
+                                        <BloodGroupDropdown
+                                            value={formData.bloodGroup}
+                                            onChange={handleChange}
+                                            required
+                                        />
                                     </div>
 
                                     <div className="col-md-6">
@@ -93,6 +177,8 @@ function BloodRequest() {
                                             type="number"
                                             name="requiredUnits"
                                             placeholder="Enter required units"
+                                            value={formData.requiredUnits}
+                                            onChange={handleChange}
                                             required
                                         />
                                     </div>
@@ -105,7 +191,8 @@ function BloodRequest() {
                                         <select
                                             className="form-select"
                                             name="urgency"
-                                            defaultValue=""
+                                            value={formData.urgency}
+                                            onChange={handleChange}
                                             required
                                         >
                                             <option value="" disabled>
@@ -122,6 +209,8 @@ function BloodRequest() {
                                             label="Hospital Name"
                                             name="hospitalName"
                                             placeholder="Enter hospital name"
+                                            value={formData.hospitalName}
+                                            onChange={handleChange}
                                             required
                                         />
                                     </div>
@@ -135,6 +224,8 @@ function BloodRequest() {
                                             type="date"
                                             name="requiredDate"
                                             className="form-control"
+                                            value={formData.requiredDate}
+                                            onChange={handleChange}
                                             required
                                         />
                                     </div>
@@ -148,9 +239,12 @@ function BloodRequest() {
                                             className="form-control"
                                             name="additionalInformation"
                                             rows="4"
+                                            value={formData.additionalInformation}
+                                            onChange={handleChange}
                                             placeholder="Enter additional information"
                                         ></textarea>
                                     </div>
+
                                 </div>
 
                                 <div className="d-flex justify-content-end mt-4">
@@ -158,8 +252,7 @@ function BloodRequest() {
                                         type="submit"
                                         className="btn text-white fw-semibold px-4 py-2 rounded-3"
                                         style={{
-                                            background:
-                                                "linear-gradient(115deg, #951629 0%, #b42332 55%, #a51d30 100%)",
+                                            background: gradient,
                                             border: "none"
                                         }}
                                     >
@@ -168,6 +261,7 @@ function BloodRequest() {
                                     </button>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </main>
