@@ -1,5 +1,10 @@
+
 import { useEffect, useMemo, useState } from "react";
-import { createColumnHelper, getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import {
+    createColumnHelper,
+    getCoreRowModel,
+    useReactTable
+} from "@tanstack/react-table";
 
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
@@ -8,13 +13,35 @@ import ResuableTable from "../components/ReusableTable";
 function PatientRequestHistory() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [requests, setRequests] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         const savedRequests = JSON.parse(
             localStorage.getItem("patientRequests") || "[]"
         );
+
         setRequests(savedRequests);
     }, []);
+
+    const filteredRequests = useMemo(() => {
+        const search = searchTerm.trim().toLowerCase();
+
+        if (!search) return requests;
+
+        return requests.filter((request) =>
+            [
+                request.requestId,
+                request.patientName,
+                request.bloodGroup,
+                request.hospitalName,
+                request.status,
+                request.requiredUnits,
+                request.requestDate
+            ].some((value) =>
+                String(value || "").toLowerCase().includes(search)
+            )
+        );
+    }, [requests, searchTerm]);
 
     const columnHelper = createColumnHelper();
 
@@ -27,15 +54,23 @@ function PatientRequestHistory() {
                 </span>
             )
         }),
+
         columnHelper.accessor("bloodGroup", {
             header: "Blood Group"
         }),
+
         columnHelper.accessor("requiredUnits", {
+            header: "Units Required"
+        }),
+
+        columnHelper.accessor("requestDate", {
             header: "Request Date"
         }),
+
         columnHelper.accessor("hospitalName", {
             header: "Hospital Name"
         }),
+
         columnHelper.accessor("status", {
             header: "Request Status",
             cell: info => {
@@ -58,7 +93,7 @@ function PatientRequestHistory() {
     ], []);
 
     const table = useReactTable({
-        data: requests,
+        data: filteredRequests,
         columns,
         getCoreRowModel: getCoreRowModel()
     });
@@ -69,6 +104,7 @@ function PatientRequestHistory() {
 
     return (
         <div className="min-vh-100 d-flex flex-column bg-light">
+
             <Navbar
                 name={savedProfile.name || "Sweta Panchal"}
                 role="Patient"
@@ -100,6 +136,7 @@ function PatientRequestHistory() {
                         }}
                     >
                         <div className="card-body p-4 p-lg-5">
+
                             <span className="badge bg-white text-danger mb-3">
                                 PATIENT SERVICES
                             </span>
@@ -111,17 +148,21 @@ function PatientRequestHistory() {
                             <p className="mb-0">
                                 View and track all your submitted blood requests.
                             </p>
+
                         </div>
                     </div>
 
                     <div className="card border-0 rounded-4 shadow-sm">
+
                         <div className="card-body p-3 p-md-4">
 
                             <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+
                                 <div>
                                     <h4 className="fw-bold text-dark mb-1">
                                         Blood Request Records
                                     </h4>
+
                                     <p className="text-secondary mb-0">
                                         Total Requests: {requests.length}
                                     </p>
@@ -131,14 +172,61 @@ function PatientRequestHistory() {
                                     <i className="bi bi-clock-history me-2"></i>
                                     Request History
                                 </span>
+
+                            </div>
+
+                            <div className="row mb-4">
+                                <div className="col-md-8 col-lg-6">
+
+                                    <label className="form-label fw-semibold">
+                                        Search Patient Requests
+                                    </label>
+
+                                    <div className="input-group">
+
+                                        <span className="input-group-text bg-white">
+                                            <i className="bi bi-search text-danger"></i>
+                                        </span>
+
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Search ID, name, blood group, hospital or status..."
+                                            value={searchTerm}
+                                            onChange={(e) => setSearchTerm(e.target.value)}
+                                        />
+
+                                        {searchTerm && (
+                                            <button
+                                                className="btn btn-outline-danger"
+                                                type="button"
+                                                onClick={() => setSearchTerm("")}
+                                            >
+                                                Clear
+                                            </button>
+                                        )}
+
+                                    </div>
+
+                                    <small className="text-secondary d-block mt-2">
+                                        Showing {filteredRequests.length} of {requests.length} requests
+                                    </small>
+
+                                </div>
                             </div>
 
                             <ResuableTable
                                 table={table}
-                                emptyMessage="No blood request history found. Submit a blood request to see it here."
+                                emptyMessage={
+                                    searchTerm
+                                        ? "No matching requests found."
+                                        : "No blood request history found. Submit a blood request to see it here."
+                                }
                             />
+
                         </div>
                     </div>
+
                 </main>
             </div>
         </div>

@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
+import {
+    createColumnHelper,
+    getCoreRowModel,
+    useReactTable
+} from "@tanstack/react-table";
+
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import DashboardCard from "../components/DashboardCard";
+import ReusableTable from "../components/ReusableTable";
 
 function DonorHome() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [donations, setDonations] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     const gradient =
         "linear-gradient(115deg, #951629 0%, #b42332 55%, #a51d30 100%)";
@@ -16,6 +25,78 @@ function DonorHome() {
 
     const donorName = savedProfile.name || "Sweta Panchal";
 
+    useEffect(() => {
+        const savedDonations = JSON.parse(
+            localStorage.getItem("donationHistory") || "[]"
+        );
+
+        setDonations(savedDonations);
+    }, []);
+
+    const filterdDonations = useMemo(() => {
+        const search = searchTerm.trim().toLowerCase();
+
+        if (!search) return donations;
+
+        return donations.filter((donation) =>
+            [
+                donation.id,
+                donation.bloodGroup,
+                donation.hospital,
+                donation.location,
+                donation.status,
+                donation.date,
+                donation.units
+            ].some((value) =>
+                String(value || "").toLowerCase().includes(search)
+            )
+        );
+    }, [donations, searchTerm]);
+
+    const columnHelper = createColumnHelper();
+
+    const columns = useMemo(() => [
+        columnHelper.accessor("id", {
+            header: "Donation ID",
+            cell: info => (
+                <span className="fw-semibold text-danger">
+                    {info.getValue()}
+                </span>
+            )
+        }),
+
+        columnHelper.accessor("date", {
+            header: "Donation Date"
+        }),
+
+        columnHelper.accessor("bloodGroup", {
+            header: "Blood Group"
+        }),
+
+        columnHelper.accessor("units", {
+            header: "Units"
+        }),
+
+        columnHelper.accessor("hospital", {
+            header: "Hospital / Blood Bank"
+        }),
+
+        columnHelper.accessor("status", {
+            header: "Status",
+            cell: info => (
+                <span className="badge bg-success-subtle text-success">
+                    {info.getValue()}
+                </span>
+            )
+        })
+    ], []);
+
+    const table = useReactTable({
+        data: filterdDonations,
+        columns,
+        getCoreRowModel: getCoreRowModel()
+    });
+
     return (
         <div className="min-vh-100 d-flex flex-column bg-light">
             <Navbar
@@ -25,7 +106,7 @@ function DonorHome() {
             />
 
             <div className="d-flex flex-grow-1 donor-layout">
-              
+
                 <div
                     className={`donor-sidebar-wrapper ${sidebarOpen ? "sidebar-open" : ""
                         }`}
@@ -106,6 +187,74 @@ function DonorHome() {
                             color="#a51d30"
                         />
                     </div>
+
+                    <div className="card border-0 rounded-4 shadow-sm mt-4">
+
+                        <div className="card-body p-3 p-md-4">
+
+                            <div className="mb-4">
+                                <h4 className="fw-bold text-dark mb-1">
+                                    Search Donation Records
+                                </h4>
+
+                                <p className="text-secondary mb-0">
+                                    Find your previous donation details.
+                                </p>
+                            </div>
+
+                            <div className="row mb-4">
+                                <div className="co-md-8 col-lg-6">
+
+                                    <label className="form-label fw-semibold">
+                                        Search Donations
+                                    </label>
+
+                                    <div className="input-group">
+
+                                        <span className="input-group-text bg-white">
+                                            <i className="bi bi-search text-danger"></i>
+                                        </span>
+
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Search ID, blood group, hospital or status..."
+                                            value={searchTerm}
+                                            onChange={(e) =>
+                                                setSearchTerm(e.target.value)
+                                            }
+                                        />
+
+                                        {searchTerm && (
+                                            <button
+                                                type="button"
+                                                className="btn btn-outline-danger"
+                                                onClick={() => setSearchTerm("")}
+                                            >
+                                                Clear
+                                            </button>
+                                        )}
+                                    </div>
+
+                                    <small className="text-secondary d-block mt-2">
+                                        Showing {filterdDonations.length} of {donations.length} donations
+                                    </small>
+
+                                </div>
+                            </div>
+
+                            <ReusableTable
+                                table={table}
+                                emptyMessage={
+                                    searchTerm
+                                        ? "No matching donation records found."
+                                        : "No donation records available. Submit a donation request to see your records here."
+                                }
+                            />
+
+                        </div>
+                    </div>
+
                 </main>
             </div>
         </div>

@@ -33,7 +33,32 @@ function DonationRequest() {
         setShowModal(true);
     };
 
+
     const handleConfirmDonation = () => {
+        const existingDonations = JSON.parse(
+            localStorage.getItem("donationHistory") || "[]"
+        );
+
+        const newDonation = {
+            id: `DN-${Date.now().toString().slice(-6)}`,
+            date: formData.donationDate,
+            bloodGroup: formData.bloodGroup,
+            units: Number(formData.units),
+            hospital: formData.hospitalName,
+            location: "Ahmedabad",
+            status: "Completed"
+        };
+
+        const updatedDonations = [
+            newDonation,
+            ...existingDonations
+        ];
+
+        localStorage.setItem(
+            "donationHistory",
+            JSON.stringify(updatedDonations)
+        );
+
         setShowModal(false);
         setDonationConfirmed(true);
 
