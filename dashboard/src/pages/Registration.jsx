@@ -2,6 +2,7 @@ import { useState } from "react";
 import BloodGroupDropdown from "../components/BloodGroupDropdown";
 import Footer from "../components/Footer";
 import useForm from "../hooks/useForm";
+import { Helmet } from "react-helmet-async";
 
 function Registration() {
 
@@ -78,6 +79,32 @@ function Registration() {
 
     return (
         <>
+            <Helmet>
+                <title>Register | BloodLink - Become a Blood Donor</title>
+
+                <meta
+                    name="description"
+                    content="Join the BloodLink community. Register as a blood donor and help save lives through blood donation."
+                />
+
+                <meta
+                    name="keywords"
+                    content="BloodLink, blood donor registration, register as donor, blood donation, save lives"
+                />
+
+                <meta
+                    property="og:title"
+                    content="Register | BloodLink"
+                />
+
+                <meta
+                    property="og:description"
+                    content="Become a blood donor and help save lives with BloodLink."
+                />
+
+                <meta property="og:type" content="website" />
+            </Helmet>
+            
             <section className="registration-section">
 
                 <div className="container">

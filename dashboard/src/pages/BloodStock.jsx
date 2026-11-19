@@ -5,6 +5,7 @@ import {
     getPaginationRowModel,
     useReactTable,
 } from "@tanstack/react-table";
+import { Helmet } from "react-helmet-async";
 
 import ReusableTable from "../components/ReusableTable";
 
@@ -90,6 +91,31 @@ function BloodStock() {
 
     return (
         <>
+
+            <Helmet>
+                <title>Blood Stock | BloodLink</title>
+
+                <meta
+                    name="description"
+                    content="Check available blood groups and blood details on BloodLink."
+                />
+
+                <meta
+                    name="keywords"
+                    content="BloodLink, blood stock, blood groups, blood availability, blood donation"
+                />
+
+                <meta property="og:title" content="Blood Stock | BloodLink" />
+
+                <meta
+                    property="og:description"
+                    content="Find available blood groups and blood stock details on BloodLink."
+                />
+
+                <meta property="og:type" content="website" />
+
+            </Helmet>
+
             <Navbar
                 name="Admin"
                 role="Administrator"
@@ -97,6 +123,7 @@ function BloodStock() {
             />
 
             <div className="d-flex">
+
                 <Sidebar role="admin" activeMenu="Blood Stock" />
 
                 <div className="container-fluid p-3 p-md-4">

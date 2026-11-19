@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { showSuccess } from "../components/Notification";
 import BloodGroupDropdown from "../components/BloodGroupDropdown";
+import { Helmet } from "react-helmet-async";
 
 function DonorScheduling() {
     const gradient =
@@ -15,6 +16,25 @@ function DonorScheduling() {
 
     return (
         <div className="min-vh-100 bg-light">
+            
+            <Helmet>
+                <title>Donation Scheduling | BloodLink</title>
+                <meta
+                    name="description"
+                    content="Schedule your blood donation appointment by selecting a convenient date, time, hospital and blood group with BloodLink."
+                />
+                <meta
+                    name="keywords"
+                    content="BloodLink, blood donation scheduling, donor appointment, donation date, blood donation"
+                />
+                <meta property="og:title" content="Donation Scheduling | BloodLink" />
+                <meta
+                    property="og:description"
+                    content="Schedule your blood donation appointment with BloodLink."
+                />
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar
                 name="Sweta"
                 role="Donor"

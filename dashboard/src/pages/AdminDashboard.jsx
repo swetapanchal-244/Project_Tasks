@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import DashboardCard from "../components/DashboardCard";
+import { Helmet } from "react-helmet-async";
 
 function AdminDashboard() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -11,6 +12,33 @@ function AdminDashboard() {
 
     return (
         <div className="min-vh-100 d-flex flex-column bg-light">
+
+            <Helmet>
+                <title>Admin Dashboard | BloodLink</title>
+
+                <meta
+                    name="description"
+                    content="Manage BloodLink users, registered donors, blood requests, blood stock and system activities through the Admin Dashboard."
+                />
+
+                <meta
+                    name="keywords"
+                    content="BloodLink, admin dashboard, blood donation management, donor management, blood requests, blood stock"
+                />
+
+                <meta
+                    property="og:title"
+                    content="Admin Dashboard | BloodLink"
+                />
+
+                <meta
+                    property="og:description"
+                    content="Monitor and manage BloodLink users, donors and blood donation activities."
+                />
+
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar
                 name="Admin"
                 role="Administrator"

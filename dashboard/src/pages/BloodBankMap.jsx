@@ -7,6 +7,7 @@ import {
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import { Helmet } from "react-helmet-async";
 
 const bloodBanks = [
     {
@@ -49,6 +50,25 @@ function BloodBankMap() {
 
     return (
         <div>
+            
+            <Helmet>
+                <title>Blood Bank Locations | BloodLink</title>
+                <meta
+                    name="description"
+                    content="Find blood bank locations in Ahmedabad using the BloodLink interactive Google Maps feature. Explore blood banks and their available blood groups."
+                />
+                <meta
+                    name="keywords"
+                    content="BloodLink, blood bank locations, Ahmedabad blood banks, blood bank map, available blood groups"
+                />
+                <meta property="og:title" content="Blood Bank Locations | BloodLink" />
+                <meta
+                    property="og:description"
+                    content="Explore blood bank locations and blood group information on the BloodLink map."
+                />
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar />
 
             <div className="d-flex">

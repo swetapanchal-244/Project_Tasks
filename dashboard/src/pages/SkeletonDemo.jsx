@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import SkeletonLoader from "../components/SkeletonLoader";
+import { Helmet } from "react-helmet-async";
 
 function SkeletonDemo() {
     const [users, setUsers] = useState([]);
@@ -39,6 +40,25 @@ function SkeletonDemo() {
 
     return (
         <div className="min-vh-100 bg-light">
+
+            <Helmet>
+                <title>API Skeleton Loader Demo | BloodLink</title>
+                <meta
+                    name="description"
+                    content="Explore the API skeleton loader demonstration in BloodLink, showing loading placeholders while user data is fetched from an API."
+                />
+                <meta
+                    name="keywords"
+                    content="BloodLink, skeleton loader, API loading, React skeleton UI, loading placeholder"
+                />
+                <meta property="og:title" content="API Skeleton Loader Demo | BloodLink" />
+                <meta
+                    property="og:description"
+                    content="See how skeleton loading placeholders improve the data loading experience."
+                />
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar role="Admin" profileImage="/profile.webp" />
 
             <div className="d-flex">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import ProfileForm from "../components/ProfileForm";
+import { Helmet } from "react-helmet-async";
 
 function Profile() {
     const [profile, setProfile] = useState(() => {
@@ -70,6 +71,33 @@ function Profile() {
 
     return (
         <div className="min-vh-100 bg-light">
+
+            <Helmet>
+                <title>My Profile | BloodLink</title>
+
+                <meta
+                    name="description"
+                    content="Manage your BloodLink patient profile, personal information, contact details and blood group information."
+                />
+
+                <meta
+                    name="keywords"
+                    content="BloodLink, patient profile, personal information, patient details, blood group"
+                />
+
+                <meta
+                    property="og:title"
+                    content="My Profile | BloodLink"
+                />
+
+                <meta
+                    property="og:description"
+                    content="View and update your personal information and blood group details on BloodLink."
+                />
+
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar
                 name={profile.name}
                 role="Patient"

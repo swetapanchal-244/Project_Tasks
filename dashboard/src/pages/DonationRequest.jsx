@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import BloodGroupDropdown from "../components/BloodGroupDropdown";
+import { Helmet } from "react-helmet-async";
 
 function DonationRequest() {
     const [formData, setFormData] = useState({
@@ -73,6 +74,25 @@ function DonationRequest() {
 
     return (
         <div className="min-vh-100 bg-light">
+
+            <Helmet>
+                <title>Donation Request | BloodLink</title>
+                <meta
+                    name="description"
+                    content="Submit your blood donation request with your blood group, donation units, preferred date and hospital details on BloodLink."
+                />
+                <meta
+                    name="keywords"
+                    content="BloodLink, donation request, blood donor, blood donation, donor registration"
+                />
+                <meta property="og:title" content="Donation Request | BloodLink" />
+                <meta
+                    property="og:description"
+                    content="Submit your blood donation details and help save lives with BloodLink."
+                />
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar
                 name="Sweta"
                 role="Donor"

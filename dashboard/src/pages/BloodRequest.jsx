@@ -7,6 +7,7 @@ import Sidebar from "../components/Sidebar";
 import { showSuccess } from "../components/Notification";
 import FormInput from "../components/FormInput";
 import BloodGroupDropdown from "../components/BloodGroupDropdown";
+import { Helmet } from "react-helmet-async";
 
 function BloodRequest() {
     const navigate = useNavigate();
@@ -78,6 +79,33 @@ function BloodRequest() {
 
     return (
         <div className="min-vh-100 bg-light">
+
+            <Helmet>
+                <title>Blood Request | BloodLink</title>
+
+                <meta
+                    name="description"
+                    content="Submit a blood request on BloodLink by providing your blood group, required units, hospital details and urgency."
+                />
+
+                <meta
+                    name="keywords"
+                    content="BloodLink, blood request, request blood, blood group, emergency blood request, blood donation"
+                />
+
+                <meta
+                    property="og:title"
+                    content="Blood Request | BloodLink"
+                />
+
+                <meta
+                    property="og:description"
+                    content="Submit and manage your blood requirements with BloodLink."
+                />
+
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar
                 name="Sweta"
                 role="Patient"

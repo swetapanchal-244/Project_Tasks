@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import AlertMessage from "../components/AlertMessage";
+import { Helmet } from "react-helmet-async";
 
 function AlertDemo() {
     const [alert, setAlert] = useState(null);
@@ -12,6 +13,25 @@ function AlertDemo() {
 
     return (
         <div>
+
+            <Helmet>
+                <title>Alert Component Demo | BloodLink</title>
+                <meta
+                    name="description"
+                    content="Test success, error and warning alert messages using the reusable alert component in BloodLink."
+                />
+                <meta
+                    name="keywords"
+                    content="BloodLink, React alert component, success alert, error alert, warning alert"
+                />
+                <meta property="og:title" content="Alert Component Demo | BloodLink" />
+                <meta
+                    property="og:description"
+                    content="Explore success, error and warning notifications in BloodLink."
+                />
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar />
 
             <div className="d-flex">

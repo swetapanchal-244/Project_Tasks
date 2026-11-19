@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 function RoleSelection() {
     const roles = [
@@ -33,95 +34,123 @@ function RoleSelection() {
     ];
 
     return (
-        <main className="role-selection-page">
-            <div className="role-selection-glow role-glow-one"></div>
-            <div className="role-selection-glow role-glow-two"></div>
+        <>
+            <Helmet>
+                <title>Choose Your Role | BloodLink</title>
 
-            <div className="container role-selection-container">
+                <meta
+                    name="description"
+                    content="Join the BloodLink community as a patient, blood donor or administrator. Choose your role to access the blood donation management system."
+                />
 
-                <header className="role-selection-header text-center">
-                    <div className="role-brand-icon">
-                        <i className="bi bi-heart-pulse-fill"></i>
-                    </div>
+                <meta
+                    name="keywords"
+                    content="BloodLink, patient, blood donor, admin, blood donation management system"
+                />
 
-                    <p className="role-eyebrow">
-                        BLOODLINK COMMUNITY
-                    </p>
+                <meta
+                    property="og:title"
+                    content="Choose Your Role | BloodLink"
+                />
 
-                    <h1>
-                        Every Life <span>Matters.</span>
-                    </h1>
+                <meta
+                    property="og:description"
+                    content="Continue as a patient, donor or admin on BloodLink."
+                />
 
-                    <p className="role-subtitle">
-                        Blood Donation Management System
-                    </p>
+                <meta property="og:type" content="website" />
+            </Helmet>
 
-                    <div className="role-heading-divider"></div>
+            <main className="role-selection-page">
+                <div className="role-selection-glow role-glow-one"></div>
+                <div className="role-selection-glow role-glow-two"></div>
 
-                    <p className="role-instruction">
-                        Select your role to get started
-                    </p>
-                </header>
+                <div className="container role-selection-container">
 
-                <div className="row justify-content-center g-4 role-cards-row">
-
-                    {roles.map((role, index) => (
-                        <div
-                            className="col-lg-4 col-md-6"
-                            key={role.type}
-                            style={{
-                                "--card-index": index,
-                            }}
-                        >
-                            <article
-                                className={`role-card role-card-${role.type}`}
-                            >
-                                <div className="role-card-top">
-                                    <span className="role-number">
-                                        0{index + 1}
-                                    </span>
-
-                                    <span className="role-card-badge">
-                                        {role.type === "patient"
-                                            ? "GET SUPPORT"
-                                            : role.type === "donor"
-                                                ? "SAVE LIVES"
-                                                : "MANAGEMENT"}
-                                    </span>
-                                </div>
-
-                                <div className="role-icon-wrapper">
-                                    <i
-                                        className={`bi ${role.icon}`}
-                                    ></i>
-                                </div>
-
-                                <h2>{role.title}</h2>
-
-                                <p className="role-card-description">
-                                    {role.description}
-                                </p>
-
-                                <div className="role-card-divider"></div>
-
-                                <Link
-                                    to={role.path}
-                                    className="role-continue-btn"
-                                >
-                                    <span>{role.buttonText}</span>
-                                    <i className="bi bi-arrow-right"></i>
-                                </Link>
-                            </article>
+                    <header className="role-selection-header text-center">
+                        <div className="role-brand-icon">
+                            <i className="bi bi-heart-pulse-fill"></i>
                         </div>
-                    ))}
+
+                        <p className="role-eyebrow">
+                            BLOODLINK COMMUNITY
+                        </p>
+
+                        <h1>
+                            Every Life <span>Matters.</span>
+                        </h1>
+
+                        <p className="role-subtitle">
+                            Blood Donation Management System
+                        </p>
+
+                        <div className="role-heading-divider"></div>
+
+                        <p className="role-instruction">
+                            Select your role to get started
+                        </p>
+                    </header>
+
+                    <div className="row justify-content-center g-4 role-cards-row">
+
+                        {roles.map((role, index) => (
+                            <div
+                                className="col-lg-4 col-md-6"
+                                key={role.type}
+                                style={{
+                                    "--card-index": index,
+                                }}
+                            >
+                                <article
+                                    className={`role-card role-card-${role.type}`}
+                                >
+                                    <div className="role-card-top">
+                                        <span className="role-number">
+                                            0{index + 1}
+                                        </span>
+
+                                        <span className="role-card-badge">
+                                            {role.type === "patient"
+                                                ? "GET SUPPORT"
+                                                : role.type === "donor"
+                                                    ? "SAVE LIVES"
+                                                    : "MANAGEMENT"}
+                                        </span>
+                                    </div>
+
+                                    <div className="role-icon-wrapper">
+                                        <i
+                                            className={`bi ${role.icon}`}
+                                        ></i>
+                                    </div>
+
+                                    <h2>{role.title}</h2>
+
+                                    <p className="role-card-description">
+                                        {role.description}
+                                    </p>
+
+                                    <div className="role-card-divider"></div>
+
+                                    <Link
+                                        to={role.path}
+                                        className="role-continue-btn"
+                                    >
+                                        <span>{role.buttonText}</span>
+                                        <i className="bi bi-arrow-right"></i>
+                                    </Link>
+                                </article>
+                            </div>
+                        ))}
+
+                    </div>
 
                 </div>
 
-            </div>
 
-
-            <Footer />
-        </main>
+                <Footer />
+            </main>
+        </>
     );
 }
 

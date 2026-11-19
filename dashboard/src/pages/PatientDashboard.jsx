@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import DashboardCard from "../components/DashboardCard";
+import { Helmet } from "react-helmet-async";
 
 function PatientDashboard() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -18,6 +19,34 @@ function PatientDashboard() {
 
     return (
         <div className="min-vh-100 d-flex flex-column bg-light">
+
+
+            <Helmet>
+                <title>Patient Dashboard | BloodLink</title>
+
+                <meta
+                    name="description"
+                    content="Manage your blood requests, track request status and view appointments through the BloodLink Patient Dashboard."
+                />
+
+                <meta
+                    name="keywords"
+                    content="BloodLink, patient dashboard, blood requests, blood request status, blood availability"
+                />
+
+                <meta
+                    property="og:title"
+                    content="Patient Dashboard | BloodLink"
+                />
+
+                <meta
+                    property="og:description"
+                    content="Manage your blood requests and stay updated with BloodLink."
+                />
+
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar
                 name={patientName}
                 role="Patient"
@@ -25,7 +54,7 @@ function PatientDashboard() {
             />
 
             <div className="d-flex flex-grow-1 patient-layout">
-               
+
                 <button
                     className="btn btn-danger d-lg-none patient-menu-toggle"
                     onClick={() => setSidebarOpen(!sidebarOpen)}

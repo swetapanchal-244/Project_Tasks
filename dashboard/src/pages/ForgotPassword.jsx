@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function ForgotPassword() {
     const [email, setEmail] = useState("");
@@ -16,73 +17,98 @@ function ForgotPassword() {
     };
 
     return (
-        <section className="forgot-password-section">
-            <div className="container">
-                <div className="row justify-content-center align-items-center">
-                    <div className="col-lg-5 col-md-7">
-                        <div className="forgot-password-card">
+        <>
+            <Helmet>
+                <title>Reset Password | BloodLink</title>
 
-                            <div className="text-center mb-4">
-                                <div className="forgot-icon">
-                                    <i className="bi bi-lock-fill"></i>
-                                </div>
+                <meta
+                    name="description"
+                    content="Reset your BloodLink account password securely and regain access to your account."
+                />
 
-                                <h2>Forgot Password</h2>
+                <meta
+                    name="keywords"
+                    content="BloodLink, forgot password, reset password, account recovery"
+                />
 
-                                <p className="text-muted">
-                                    Enter your registered email address
-                                    to reset your password.
-                                </p>
-                            </div>
+                <meta property="og:title" content="Reset Password | BloodLink" />
 
-                            <form onSubmit={handleSubmit}>
-                                <div className="mb-4">
-                                    <label
-                                        htmlFor="email"
-                                        className="form-label fw-semibold"
-                                    >
-                                        Email Address
-                                    </label>
+                <meta
+                    property="og:description"
+                    content="Recover access to your BloodLink account by resetting your password."
+                />
 
-                                    <div className="input-group custom-input">
-                                        <span className="input-group-text">
-                                            <i className="bi bi-envelope-fill"></i>
-                                        </span>
+                <meta property="og:type" content="website" />
+            </Helmet>
+            
+            <section className="forgot-password-section">
+                <div className="container">
+                    <div className="row justify-content-center align-items-center">
+                        <div className="col-lg-5 col-md-7">
+                            <div className="forgot-password-card">
 
-                                        <input
-                                            id="email"
-                                            type="email"
-                                            className="form-control"
-                                            placeholder="Enter your email"
-                                            value={email}
-                                            onChange={(e) =>
-                                                setEmail(e.target.value)
-                                            }
-                                            required
-                                        />
+                                <div className="text-center mb-4">
+                                    <div className="forgot-icon">
+                                        <i className="bi bi-lock-fill"></i>
                                     </div>
+
+                                    <h2>Forgot Password</h2>
+
+                                    <p className="text-muted">
+                                        Enter your registered email address
+                                        to reset your password.
+                                    </p>
                                 </div>
 
-                                <button
-                                    type="submit"
-                                    className="btn forgot-btn w-100"
-                                >
-                                    Send Reset Link
-                                </button>
-                            </form>
+                                <form onSubmit={handleSubmit}>
+                                    <div className="mb-4">
+                                        <label
+                                            htmlFor="email"
+                                            className="form-label fw-semibold"
+                                        >
+                                            Email Address
+                                        </label>
 
-                            <div className="text-center mt-4">
-                                <Link to="/">
-                                    <i className="bi bi-arrow-left me-1"></i>
-                                    Back to Home
-                                </Link>
+                                        <div className="input-group custom-input">
+                                            <span className="input-group-text">
+                                                <i className="bi bi-envelope-fill"></i>
+                                            </span>
+
+                                            <input
+                                                id="email"
+                                                type="email"
+                                                className="form-control"
+                                                placeholder="Enter your email"
+                                                value={email}
+                                                onChange={(e) =>
+                                                    setEmail(e.target.value)
+                                                }
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <button
+                                        type="submit"
+                                        className="btn forgot-btn w-100"
+                                    >
+                                        Send Reset Link
+                                    </button>
+                                </form>
+
+                                <div className="text-center mt-4">
+                                    <Link to="/">
+                                        <i className="bi bi-arrow-left me-1"></i>
+                                        Back to Home
+                                    </Link>
+                                </div>
+
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }
 

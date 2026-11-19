@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import { Helmet } from "react-helmet-async";
 
 function BloodAvailability() {
     const gradient =
@@ -74,6 +75,33 @@ function BloodAvailability() {
 
     return (
         <div className="min-vh-100 bg-light">
+
+            <Helmet>
+                <title>Blood Availability | BloodLink</title>
+
+                <meta
+                    name="description"
+                    content="Find available blood groups, blood units, hospitals and blood banks by location with BloodLink."
+                />
+
+                <meta
+                    name="keywords"
+                    content="BloodLink, blood availability, available blood groups, blood bank, blood units, blood search"
+                />
+
+                <meta
+                    property="og:title"
+                    content="Blood Availability | BloodLink"
+                />
+
+                <meta
+                    property="og:description"
+                    content="Search available blood units by blood group and location on BloodLink."
+                />
+
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Navbar role="Patient" profileImage="/profile.webp" />
 
             <div className="d-flex">

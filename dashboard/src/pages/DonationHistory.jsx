@@ -5,6 +5,7 @@ import {
     getCoreRowModel,
     useReactTable
 } from "@tanstack/react-table";
+import { Helmet } from "react-helmet-async";
 
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
@@ -139,6 +140,32 @@ function DonationHistory() {
 
     return (
         <div className="min-vh-100 bg-light">
+
+            <Helmet>
+                <title>Donation History | BloodLink</title>
+
+                <meta
+                    name="description"
+                    content="View your blood donation history, completed donations, donated units and donation records on BloodLink."
+                />
+
+                <meta
+                    name="keywords"
+                    content="BloodLink, donation history, donor records, blood donation, completed donations"
+                />
+
+                <meta
+                    property="og:title"
+                    content="Donation History | BloodLink"
+                />
+
+                <meta
+                    property="og:description"
+                    content="Track your previous blood donations and donation records with BloodLink."
+                />
+
+                <meta property="og:type" content="website" />
+            </Helmet>
 
             <Navbar
                 name="Sweta"

@@ -21,6 +21,8 @@ import AlertDemo from "./pages/ALertDemo";
 import ScrollToTop from "./components/ScrollToTop";
 import ThemeToggle from "./components/ThemeToggle";
 import PatientRequestHistory from "./pages/PatientRequestHistory";
+import NotFound from "./pages/NotFound";
+import MaintainancePage from "./pages/MaintenancePage";
 
 function StandaloneThemeToggle() {
   const { pathname } = useLocation();
@@ -119,6 +121,14 @@ function App() {
         <Route
           path="/alert-demo"
           element={<AlertDemo />}
+        />
+        <Route
+          path="/maintenance"
+          element={<MaintainancePage />}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
         />
       </Routes>
 

@@ -9,6 +9,7 @@ import {
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import ResuableTable from "../components/ReusableTable";
+import { Helmet } from "react-helmet-async";
 
 function PatientRequestHistory() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -104,6 +105,32 @@ function PatientRequestHistory() {
 
     return (
         <div className="min-vh-100 d-flex flex-column bg-light">
+
+            <Helmet>
+                <title>Patient Request History | BloodLink</title>
+
+                <meta
+                    name="description"
+                    content="View and track your submitted blood requests, request status, blood groups and hospital details with BloodLink."
+                />
+
+                <meta
+                    name="keywords"
+                    content="BloodLink, patient request history, blood requests, blood request status, patient services"
+                />
+
+                <meta
+                    property="og:title"
+                    content="Patient Request History | BloodLink"
+                />
+
+                <meta
+                    property="og:description"
+                    content="Track your blood requests and check their latest status on BloodLink."
+                />
+
+                <meta property="og:type" content="website" />
+            </Helmet>
 
             <Navbar
                 name={savedProfile.name || "Sweta Panchal"}
