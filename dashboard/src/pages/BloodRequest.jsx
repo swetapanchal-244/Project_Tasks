@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -79,7 +78,6 @@ function BloodRequest() {
 
     return (
         <div className="min-vh-100 bg-light">
-
             <Helmet>
                 <title>Blood Request | BloodLink</title>
 
@@ -113,23 +111,26 @@ function BloodRequest() {
             />
 
             <div className="d-flex patient-layout">
-
                 <button
+                    type="button"
                     className="btn btn-danger d-lg-none patient-menu-toggle"
                     onClick={() => setSidebarOpen(!sidebarOpen)}
-                    aria-label="Toggle sidebar"
+                    aria-label={sidebarOpen ? "Close sidebar" : "Open sidebar"}
                     aria-expanded={sidebarOpen}
+                    aria-controls="patient-sidebar"
                 >
-                    <i className="bi bi-list fs-4"></i>
+                    <i className="bi bi-list fs-4" aria-hidden="true"></i>
                     <span className="ms-2">Menu</span>
                 </button>
 
-                <div className={`patient-sidebar-wrapper ${sidebarOpen ? "sidebar-open" : ""}`}>
+                <div
+                    id="patient-sidebar"
+                    className={`patient-sidebar-wrapper ${sidebarOpen ? "sidebar-open" : ""}`}
+                >
                     <Sidebar role="patient" />
                 </div>
 
                 <main className="container-fluid p-3 p-lg-4 min-w-0">
-
                     <div
                         className="card border-0 rounded-4 shadow-sm text-white mb-4"
                         style={{ background: gradient }}
@@ -151,7 +152,6 @@ function BloodRequest() {
 
                     <div className="card border-0 rounded-4 shadow-sm">
                         <div className="card-body p-4 p-lg-5">
-
                             <div className="d-flex align-items-center gap-3 mb-4">
                                 <div
                                     className="d-flex align-items-center justify-content-center rounded-3"
@@ -162,13 +162,14 @@ function BloodRequest() {
                                         color: "#a51d30"
                                     }}
                                 >
-                                    <i className="bi bi-droplet-fill fs-4"></i>
+                                    <i className="bi bi-droplet-fill fs-4" aria-hidden="true"></i>
                                 </div>
 
                                 <div>
                                     <h4 className="fw-bold text-dark mb-1">
                                         Request Details
                                     </h4>
+
                                     <p className="text-secondary small mb-0">
                                         Fill in the details below to submit your request.
                                     </p>
@@ -179,7 +180,6 @@ function BloodRequest() {
 
                             <form onSubmit={handleSubmit}>
                                 <div className="row g-4">
-
                                     <div className="col-md-6">
                                         <FormInput
                                             label="Patient Name"
@@ -212,11 +212,15 @@ function BloodRequest() {
                                     </div>
 
                                     <div className="col-md-6">
-                                        <label className="form-label fw-semibold">
+                                        <label
+                                            htmlFor="urgency"
+                                            className="form-label fw-semibold"
+                                        >
                                             Urgency
                                         </label>
 
                                         <select
+                                            id="urgency"
                                             className="form-select"
                                             name="urgency"
                                             value={formData.urgency}
@@ -244,11 +248,15 @@ function BloodRequest() {
                                     </div>
 
                                     <div className="col-md-6">
-                                        <label className="form-label fw-semibold">
+                                        <label
+                                            htmlFor="requiredDate"
+                                            className="form-label fw-semibold"
+                                        >
                                             Required Date
                                         </label>
 
                                         <input
+                                            id="requiredDate"
                                             type="date"
                                             name="requiredDate"
                                             className="form-control"
@@ -259,20 +267,31 @@ function BloodRequest() {
                                     </div>
 
                                     <div className="col-12">
-                                        <label className="form-label fw-semibold">
+                                        <label
+                                            htmlFor="additionalInformation"
+                                            className="form-label fw-semibold"
+                                        >
                                             Additional Information
                                         </label>
 
                                         <textarea
+                                            id="additionalInformation"
                                             className="form-control"
                                             name="additionalInformation"
                                             rows="4"
                                             value={formData.additionalInformation}
                                             onChange={handleChange}
                                             placeholder="Enter additional information"
+                                            aria-describedby="additionalInformation-help"
                                         ></textarea>
-                                    </div>
 
+                                        <small
+                                            id="additionalInformation-help"
+                                            className="text-muted"
+                                        >
+                                            Enter any extra details related to your blood request.
+                                        </small>
+                                    </div>
                                 </div>
 
                                 <div className="d-flex justify-content-end mt-4">
@@ -284,12 +303,11 @@ function BloodRequest() {
                                             border: "none"
                                         }}
                                     >
-                                        <i className="bi bi-droplet-fill me-2"></i>
+                                        <i className="bi bi-droplet-fill me-2" aria-hidden="true"></i>
                                         Submit Blood Request
                                     </button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </main>

@@ -30,8 +30,11 @@ const Sidebar = ({ role }) => {
         { icon: "bi-box-arrow-right", text: "Logout", path: "/donor-logout" }
     ];
 
-    const renderLinks = (items) => (
-        <nav className="nav flex-column gap-2">
+    const renderLinks = (items, label = "Sidebar navigation") => (
+        <nav
+            className="nav flex-column gap-2"
+            aria-label={label}
+        >
             {items.map((item) => (
                 <NavLink
                     key={item.path}
@@ -44,7 +47,10 @@ const Sidebar = ({ role }) => {
                         }`
                     }
                 >
-                    <i className={`bi ${item.icon} me-3 fs-5`}></i>
+                    <i
+                        className={`bi ${item.icon} me-3 fs-5`}
+                        aria-hidden="true"
+                    ></i>
                     <span>{item.text}</span>
                 </NavLink>
             ))}
@@ -52,7 +58,10 @@ const Sidebar = ({ role }) => {
     );
 
     const renderAdminMenu = () => (
-        <nav className="nav flex-column gap-2">
+        <nav
+            className="nav flex-column gap-2"
+            aria-label="Admin navigation"
+        >
             <NavLink
                 to="/admin-dashboard"
                 end
@@ -61,7 +70,10 @@ const Sidebar = ({ role }) => {
                     }`
                 }
             >
-                <i className="bi bi-speedometer2 me-3 fs-5"></i>
+                <i
+                    className="bi bi-speedometer2 me-3 fs-5"
+                    aria-hidden="true"
+                ></i>
                 Dashboard
             </NavLink>
 
@@ -90,7 +102,7 @@ const Sidebar = ({ role }) => {
                             {renderLinks([
                                 { icon: "bi-person-fill", text: "Manage Users", path: "/skeleton-demo" },
                                 { icon: "bi-heart-pulse-fill", text: "Manage Donors", path: "/manage-donors" }
-                            ])}
+                            ], "User management")}
                         </div>
                     </div>
                 </div>
@@ -119,7 +131,7 @@ const Sidebar = ({ role }) => {
                             {renderLinks([
                                 { icon: "bi-hospital-fill", text: "Blood Requests", path: "/admin-blood-requests" },
                                 { icon: "bi-droplet-fill", text: "Blood Stock", path: "/blood-stock" }
-                            ])}
+                            ], "Blood management")}
                         </div>
                     </div>
                 </div>
@@ -129,17 +141,21 @@ const Sidebar = ({ role }) => {
                 { icon: "bi-bar-chart-fill", text: "Reports", path: "/reports" },
                 { icon: "bi-person-fill", text: "Profile", path: "/admin-profile" },
                 { icon: "bi-box-arrow-right", text: "Logout", path: "/admin-logout" }
-            ])}
+            ], "Admin navigation links")}
         </nav>
     );
 
     return (
-        <aside className="text-white p-3" style={sidebarStyle}>
+        <aside
+            className="text-white p-3"
+            style={sidebarStyle}
+            aria-label={`${role || "user"} sidebar`}
+        >
             {role === "admin"
                 ? renderAdminMenu()
                 : role === "donor"
-                    ? renderLinks(donorMenu)
-                    : renderLinks(patientMenu)}
+                    ? renderLinks(donorMenu, "Donor navigation")
+                    : renderLinks(patientMenu, "Patient navigation")}
         </aside>
     );
 };

@@ -4,7 +4,10 @@ import ThemeToggle from "./ThemeToggle";
 
 function Navbar({ name, role, profileImage }) {
     return (
-        <nav className="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top py-3">
+        <nav
+            className="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top py-3"
+            aria-label="Main navigation"
+        >
             <div className="container-fluid px-3 px-lg-4">
 
                 <Link
@@ -24,6 +27,7 @@ function Navbar({ name, role, profileImage }) {
                         <i
                             className="bi bi-heart-pulse-fill text-white"
                             style={{ fontSize: "29px" }}
+                            aria-hidden="true"
                         ></i>
                     </span>
 
@@ -57,6 +61,8 @@ function Navbar({ name, role, profileImage }) {
                         className="d-flex mx-lg-auto my-3 my-lg-0 w-100"
                         style={{ maxWidth: "400px" }}
                         onSubmit={(e) => e.preventDefault()}
+                        role="search"
+                        aria-label="Site search"
                     >
                         <div className="input-group">
                             <span className="input-group-text bg-light border-end-0">
@@ -66,7 +72,7 @@ function Navbar({ name, role, profileImage }) {
                                 type="search"
                                 className="form-control bg-light border-start-0 shadow-none"
                                 placeholder="Search..."
-                                aria-label="Search"
+                                aria-label="Search BloodLink"
                             />
                         </div>
                     </form>
@@ -79,10 +85,13 @@ function Navbar({ name, role, profileImage }) {
                         <button
                             type="button"
                             className="btn btn-light position-relative"
-                            aria-label="Notifications"
+                            aria-label="Notifications, 3 unread"
                         >
-                            <i className="bi bi-bell fs-5"></i>
-                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <i className="bi bi-bell fs-5" aira-hidden="true"></i>
+                            <span
+                                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                aria-hidden="true"
+                            >
                                 3
                             </span>
                         </button>
@@ -92,7 +101,7 @@ function Navbar({ name, role, profileImage }) {
                         <Link to="/profile" className="d-flex align-items-center gap-2 text-decoration-none">
                             <img
                                 src={profileImage || "/profile.webp"}
-                                alt="Profile"
+                                alt={`${name || "User"} profile`}
                                 width="42"
                                 height="42"
                                 className="rounded-circle border border-danger-subtle"

@@ -23,6 +23,8 @@ import ThemeToggle from "./components/ThemeToggle";
 import PatientRequestHistory from "./pages/PatientRequestHistory";
 import NotFound from "./pages/NotFound";
 import MaintainancePage from "./pages/MaintenancePage";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function StandaloneThemeToggle() {
   const { pathname } = useLocation();
@@ -125,6 +127,14 @@ function App() {
         <Route
           path="/maintenance"
           element={<MaintainancePage />}
+        />
+        <Route
+          path="/terms-and-conditions"
+          element={<TermsAndConditions />}
+        />
+        <Route
+          path="/privacy-policy"
+          element={<PrivacyPolicy />}
         />
         <Route
           path="*"
