@@ -1676,3 +1676,738 @@ textarea:focus-visible,
     outline: 3px solid #ffcf70 !important;
     outline-offset: 3px;
 }
+
+.about-page {
+    overflow: hidden;
+    background: var(--bs-body-bg, #ffffff);
+}
+
+.about-hero {
+    position: relative;
+    padding: 100px 0;
+    background: linear-gradient(135deg, #fff5f6 0%, #ffffff 55%, #fcebed 100%);
+}
+
+.about-eyebrow,
+.about-section-label {
+    display: inline-block;
+    color: #951629;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.about-hero h1 {
+    color: #25212a;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 22px;
+}
+
+.about-hero h1 span,
+.about-section-title span {
+    color: #951629;
+}
+
+.about-hero-description {
+    max-width: 600px;
+    color: #68636b;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.about-primary-btn,
+.about-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 25px;
+    border-radius: 50px;
+    background: #951629;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.about-primary-btn:hover,
+.about-cta-btn:hover {
+    background: #741020;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.about-hero-visual {
+    position: relative;
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 35px;
+    background: linear-gradient(145deg, #951629, #c83a50);
+    box-shadow: 0 25px 60px rgba(149, 22, 41, 0.2);
+}
+
+.about-heart-circle {
+    width: 190px;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 100px;
+}
+
+.about-floating-icon {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: white;
+    color: #951629;
+    font-size: 28px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.about-float-one {
+    top: 55px;
+    left: 45px;
+}
+
+.about-float-two {
+    right: 45px;
+    bottom: 100px;
+}
+
+.about-visual-text {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    color: white;
+}
+
+.about-visual-text h3 {
+    font-size: 25px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.about-visual-text p {
+    margin: 4px 0 0;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.about-intro-card {
+    min-height: 300px;
+    padding: 45px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #951629, #c83a50);
+    color: white;
+    box-shadow: 0 15px 35px rgba(149, 22, 41, 0.16);
+}
+
+.about-intro-card>i {
+    font-size: 55px;
+    margin-bottom: 25px;
+}
+
+.about-intro-card h2 {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.about-intro-card p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.about-section-title {
+    color: #25212a;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.about-section-text {
+    color: #77717a;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.about-mission-section {
+    background: #fff7f8;
+}
+
+.about-purpose-card {
+    height: 100%;
+    padding: 40px;
+    border: 1px solid #f2dce0;
+    border-radius: 22px;
+    background: #ffffff;
+    transition: 0.3s ease;
+}
+
+.about-purpose-card:hover,
+.about-feature-card:hover,
+.about-role-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(149, 22, 41, 0.1);
+}
+
+.about-purpose-icon,
+.about-feature-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: #fbe7ea;
+    color: #951629;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.about-purpose-card h3,
+.about-feature-card h3,
+.about-role-card h3 {
+    color: #29232b;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.about-purpose-card p,
+.about-feature-card p,
+.about-role-card p {
+    color: #77717a;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+.about-feature-card {
+    position: relative;
+    height: 100%;
+    padding: 30px 25px;
+    border: 1px solid #f0e4e6;
+    border-radius: 20px;
+    background: #ffffff;
+    transition: 0.3s ease;
+}
+
+.about-feature-number {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    color: #ead5d9;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.about-feature-card h3 {
+    font-size: 19px;
+}
+
+.about-roles-section {
+    background: #fff7f8;
+}
+
+.about-role-card {
+    height: 100%;
+    padding: 35px 25px;
+    text-align: center;
+    border: 1px solid #f1dfe2;
+    border-radius: 20px;
+    background: white;
+    transition: 0.3s ease;
+}
+
+.about-role-card>i {
+    display: inline-flex;
+    width: 75px;
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    border-radius: 50%;
+    background: #fbe7ea;
+    color: #951629;
+    font-size: 32px;
+}
+
+.about-cta-section {
+    padding: 75px 0;
+    background: linear-gradient(135deg, #951629, #b92d44);
+    color: white;
+}
+
+.about-cta-section>.container>i {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.about-cta-section h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.about-cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+}
+
+.about-cta-btn {
+    background: white;
+    color: #951629;
+}
+
+.about-cta-btn:hover {
+    background: #fff0f2;
+    color: #741020;
+}
+
+[data-theme="dark"] .about-page {
+    background: #151515;
+}
+
+[data-theme="dark"] .about-hero,
+[data-theme="dark"] .about-mission-section,
+[data-theme="dark"] .about-roles-section {
+    background: #1b1b1b;
+}
+
+[data-theme="dark"] .about-hero h1,
+[data-theme="dark"] .about-section-title,
+[data-theme="dark"] .about-purpose-card h3,
+[data-theme="dark"] .about-feature-card h3,
+[data-theme="dark"] .about-role-card h3 {
+    color: #f5f5f5;
+}
+
+[data-theme="dark"] .about-hero-description,
+[data-theme="dark"] .about-section-text,
+[data-theme="dark"] .about-purpose-card p,
+[data-theme="dark"] .about-feature-card p,
+[data-theme="dark"] .about-role-card p {
+    color: #bcbcbc;
+}
+
+[data-theme="dark"] .about-purpose-card,
+[data-theme="dark"] .about-feature-card,
+[data-theme="dark"] .about-role-card {
+    background: #242424;
+    border-color: #3a3a3a;
+}
+
+[data-theme="dark"] .about-feature-number {
+    color: #68404a;
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 65px 0;
+    }
+
+    .about-hero-visual {
+        min-height: 320px;
+    }
+
+    .about-heart-circle {
+        width: 150px;
+        height: 150px;
+        font-size: 75px;
+    }
+
+    .about-float-one {
+        left: 20px;
+    }
+
+    .about-float-two {
+        right: 20px;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .about-purpose-card {
+        padding: 30px 25px;
+    }
+}
+
+.contact-page {
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.contact-hero {
+    padding: 75px 0;
+    background: linear-gradient(135deg, #fff2f4, #ffffff, #fcebed);
+}
+
+.contact-eyebrow,
+.contact-section-label {
+    display: inline-block;
+    color: #951629;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.contact-hero h1 {
+    color: #25212a;
+    font-size: clamp(38px, 5vw, 55px);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.contact-hero h1 span {
+    color: #951629;
+}
+
+.contact-hero p {
+    color: #77717a;
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+.contact-content-section {
+    padding: 75px 0;
+}
+
+.contact-info-card {
+    height: 100%;
+    min-height: 580px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #951629, #bd3048);
+    color: white;
+    box-shadow: 0 15px 40px rgba(149, 22, 41, 0.15);
+}
+
+.contact-info-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.contact-info-card h2 {
+    font-size: 31px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 18px 0;
+}
+
+.contact-info-description {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.contact-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.contact-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.contact-detail-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    font-size: 21px;
+}
+
+.contact-detail-item h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.contact-detail-item p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    margin-bottom: 0;
+    overflow-wrap: anywhere;
+}
+
+.contact-info-bottom {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 35px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-info-bottom i {
+    font-size: 23px;
+}
+
+.contact-form-card {
+    height: 100%;
+    padding: 40px;
+    border: 1px solid #f0e2e5;
+    border-radius: 25px;
+    background: #ffffff;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.045);
+}
+
+.contact-form-heading {
+    margin-bottom: 30px;
+}
+
+.contact-form-heading h2 {
+    color: #25212a;
+    font-size: 29px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.contact-form-heading p {
+    color: #77717a;
+    margin-bottom: 0;
+    line-height: 1.7;
+}
+
+.contact-form-card .form-label {
+    color: #353039;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.contact-form-card .form-label span {
+    color: #951629;
+}
+
+.contact-input {
+    min-height: 50px;
+    padding: 12px 15px;
+    border: 1px solid #e6dfe1;
+    border-radius: 10px;
+    background: #fcfafb;
+    color: #25212a;
+    box-shadow: none !important;
+}
+
+.contact-input:focus {
+    border-color: #951629;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(149, 22, 41, 0.1) !important;
+}
+
+.contact-input::placeholder {
+    color: #aaa3a8;
+    font-size: 14px;
+}
+
+textarea.contact-input {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.contact-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px;
+    background: #951629;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.contact-submit-btn:hover {
+    background: #741020;
+    transform: translateY(-2px);
+}
+
+.contact-submit-btn:focus-visible {
+    outline: 3px solid #ffb547;
+    outline-offset: 3px;
+}
+
+[data-theme="dark"] .contact-page {
+    background: #151515;
+}
+
+[data-theme="dark"] .contact-hero {
+    background: #1b1b1b;
+}
+
+[data-theme="dark"] .contact-hero h1,
+[data-theme="dark"] .contact-form-heading h2 {
+    color: #f5f5f5;
+}
+
+[data-theme="dark"] .contact-hero p,
+[data-theme="dark"] .contact-form-heading p {
+    color: #bcbcbc;
+}
+
+[data-theme="dark"] .contact-form-card {
+    background: #242424;
+    border-color: #3a3a3a;
+}
+
+[data-theme="dark"] .contact-form-card .form-label {
+    color: #eeeeee;
+}
+
+[data-theme="dark"] .contact-input {
+    background: #303030;
+    border-color: #494949;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .contact-input:focus {
+    background: #303030;
+    border-color: #d34b60;
+}
+
+[data-theme="dark"] .contact-input::placeholder {
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    .contact-hero {
+        padding: 55px 0;
+    }
+
+    .contact-content-section {
+        padding: 45px 0;
+    }
+
+    .contact-info-card {
+        min-height: auto;
+        padding: 32px 25px;
+    }
+
+    .contact-info-bottom {
+        margin-top: 35px;
+    }
+
+    .contact-form-card {
+        padding: 28px 22px;
+    }
+
+    .contact-form-heading h2 {
+        font-size: 25px;
+    }
+}
+
+.whatsapp-float {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #25D366;
+    color: #ffffff;
+
+    font-size: 34px;
+    text-decoration: none;
+
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.35);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background: #1ebe5d;
+    color: #ffffff;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-float:focus-visible {
+    outline: 3px solid #951629;
+    outline-offset: 4px;
+}
+
+.whatsapp-tooltip {
+    position: absolute;
+    right: 72px;
+
+    padding: 9px 14px;
+    border-radius: 8px;
+
+    background: #252525;
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip,
+.whatsapp-float:focus-visible .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 576px) {
+    .whatsapp-float {
+        width: 54px;
+        height: 54px;
+        right: 16px;
+        bottom: 18px;
+        font-size: 30px;
+    }
+
+    .whatsapp-tooltip {
+        display: none;
+    }
+}

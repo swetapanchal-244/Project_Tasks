@@ -57,17 +57,22 @@ function Navbar({ name, role, profileImage }) {
                 </button>
 
                 <div className="collapse navbar-collapse" id="bloodLinkNavbar">
+
                     <form
                         className="d-flex mx-lg-auto my-3 my-lg-0 w-100"
-                        style={{ maxWidth: "400px" }}
+                        style={{ maxWidth: "350px" }}
                         onSubmit={(e) => e.preventDefault()}
                         role="search"
                         aria-label="Site search"
                     >
                         <div className="input-group">
                             <span className="input-group-text bg-light border-end-0">
-                                <i className="bi bi-search text-secondary"></i>
+                                <i
+                                    className="bi bi-search text-secondary"
+                                    aria-hidden="true"
+                                ></i>
                             </span>
+
                             <input
                                 type="search"
                                 className="form-control bg-light border-start-0 shadow-none"
@@ -77,8 +82,27 @@ function Navbar({ name, role, profileImage }) {
                         </div>
                     </form>
 
+                    <ul className="navbar-nav align-items-lg-center gap-lg-2 mx-lg-3 my-2 my-lg-0">
+                        <li className="nav-item">
+                            <Link
+                                to="/about-us"
+                                className="nav-link fw-semibold"
+                            >
+                                About Us
+                            </Link>
+                        </li>
 
-                    <div className="d-flex align-items-center gap-3 ms-lg-3 mt-2 mt-lg-0">
+                        <li className="nav-item">
+                            <Link
+                                to="/contact-us"
+                                className="nav-link fw-semibold"
+                            >
+                                Contact Us
+                            </Link>
+                        </li>
+                    </ul>
+
+                    <div className="d-flex align-items-center gap-3 ms-lg-2 mt-2 mt-lg-0">
 
                         <ThemeToggle />
 
@@ -87,7 +111,11 @@ function Navbar({ name, role, profileImage }) {
                             className="btn btn-light position-relative"
                             aria-label="Notifications, 3 unread"
                         >
-                            <i className="bi bi-bell fs-5" aira-hidden="true"></i>
+                            <i
+                                className="bi bi-bell fs-5"
+                                aria-hidden="true"
+                            ></i>
+
                             <span
                                 className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                                 aria-hidden="true"
@@ -98,7 +126,10 @@ function Navbar({ name, role, profileImage }) {
 
                         <div className="vr d-none d-sm-block"></div>
 
-                        <Link to="/profile" className="d-flex align-items-center gap-2 text-decoration-none">
+                        <Link
+                            to="/profile"
+                            className="d-flex align-items-center gap-2 text-decoration-none"
+                        >
                             <img
                                 src={profileImage || "/profile.webp"}
                                 alt={`${name || "User"} profile`}
@@ -107,19 +138,24 @@ function Navbar({ name, role, profileImage }) {
                                 className="rounded-circle border border-danger-subtle"
                                 style={{ objectFit: "cover" }}
                             />
+
                             <div>
                                 <div className="fw-semibold text-dark small">
                                     {name || "User"}
                                 </div>
+
                                 <div className="text-secondary small">
-                                    <i className="bi bi-circle-fill text-success me-1" style={{ fontSize: "7px" }}></i>
+                                    <i
+                                        className="bi bi-circle-fill text-success me-1"
+                                        style={{ fontSize: "7px" }}
+                                        aria-hidden="true"
+                                    ></i>
                                     {role || "Member"}
                                 </div>
                             </div>
                         </Link>
 
                     </div>
-
                 </div>
             </div>
         </nav>

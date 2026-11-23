@@ -25,6 +25,9 @@ import NotFound from "./pages/NotFound";
 import MaintainancePage from "./pages/MaintenancePage";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function StandaloneThemeToggle() {
   const { pathname } = useLocation();
@@ -137,10 +140,20 @@ function App() {
           element={<PrivacyPolicy />}
         />
         <Route
+          path="/about-us"
+          element={<AboutUs />}
+        />
+        <Route
+          path="/contact-us"
+          element={<ContactUs />}
+        />
+        <Route
           path="*"
           element={<NotFound />}
         />
       </Routes>
+
+      <WhatsAppButton />
 
     </BrowserRouter>
   );
