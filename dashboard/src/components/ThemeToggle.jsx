@@ -15,14 +15,24 @@ function ThemeToggle() {
 
     return (
         <button
+            type="button"
             className={`theme-toggle-btn ${isFloating ? "theme-toggle-floating" : ""
                 }`}
             onClick={toggleTheme}
             title="Toggle Theme"
             aria-label="Toggle dark mode"
         >
-            <i className={`bi ${theme === "light" ? "bi-moon-stars-fill" : "bi-sun-fill"}`}></i>
-            <span>{theme === "light" ? "Dark Mode" : "Light Mode"}</span>
+            <i
+                className={`bi ${theme === "light"
+                        ? "bi-moon-stars-fill"
+                        : "bi-sun-fill"
+                    }`}
+                aria-hidden="true"
+            ></i>
+
+            <span>
+                {theme === "light" ? "Dark Mode" : "Light Mode"}
+            </span>
         </button>
     );
 }
