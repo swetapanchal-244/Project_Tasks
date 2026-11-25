@@ -167,7 +167,7 @@ function AboutUs() {
                         <div className="row g-4">
 
                             <div className="col-md-6">
-                                <article classNam="about-purpose-card">
+                                <article className="about-purpose-card">
                                     <div className="about-purpose-icon">
                                         <i className="bi bi-bullseye"></i>
                                     </div>

@@ -47,21 +47,27 @@ function AdminDashboard() {
 
             <div className="d-flex flex-grow-1 admin-layout">
 
+
                 <button
-                    className="btn btn-danger d-lg-none admin-menu-toggle"
-                    onClick={() => setSidebarOpen(!sidebarOpen)}
-                    aria-label="Toggle sidebar"
-                    aria-expanded={sidebarOpen}
+                    type="button"
+                    className="btn btn-danger dashboard-menu-button"
+                    onClick={() => setSidebarOpen((previous) => !previous)}
+                    aria-label="Toggle dashboard sidebar"
                 >
-                    <i className="bi bi-list fs-4"></i>
-                    <span className="ms-2">Menu</span>
+                    <i className="bi bi-list me-2"></i>
+                    Menu
                 </button>
+
 
                 <div
                     className={`admin-sidebar-wrapper ${sidebarOpen ? "sidebar-open" : ""
                         }`}
                 >
-                    <Sidebar role="admin" activeMenu="Dashboard" />
+                    <Sidebar
+                        role="admin"
+                        isOpen={sidebarOpen}
+                        onClose={() => setSidebarOpen(false)}
+                    />
                 </div>
 
                 <main className="flex-grow-1 min-w-0 p-3 p-md-4 admin-main">

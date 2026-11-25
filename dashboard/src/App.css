@@ -942,46 +942,14 @@ body {
     }
 }
 
-.admin-layout {
-    min-width: 0;
-}
-
-.admin-sidebar-wrapper {
-    flex-shrink: 0;
-}
-
 .admin-main {
     min-width: 0;
 }
 
-.admin-menu-toggle {
-    align-self: flex-start;
-    margin: 12px 12px 0;
+.admin-main {
+    width: 100%
 }
 
-@media (max-width: 991.98px) {
-    .admin-layout {
-        flex-direction: column;
-    }
-
-    .admin-sidebar-wrapper {
-        display: none;
-        width: 100%
-    }
-
-    .admin-sidebar-wrapper.sidebar-open {
-        display: block;
-    }
-
-    .admin-sidebar-wrapper aside {
-        width: 100% !important;
-        min-height: auto !important;
-    }
-
-    .admin-main {
-        width: 100%
-    }
-}
 
 @media (max-width: 575.98px) {
     .admin-main h2 {
@@ -993,45 +961,12 @@ body {
     }
 }
 
-.patient-layout {
-    min-width: 0;
-}
-
-.patient-sidebar-wrapper {
-    flex-shrink: 0;
-}
-
 .patient-main {
     min-width: 0;
 }
 
-.patient-menu-toggle {
-    align-self: flex-start;
-    margin: 12px 12px 0;
-}
-
-@media (max-width: 991.98px) {
-    .patient-layout {
-        flex-direction: column;
-    }
-
-    .patient-sidebar-wrapper {
-        display: none;
-        width: 100%;
-    }
-
-    .patient-sidebar-wrapper.sidebar-open {
-        display: block;
-    }
-
-    .patient-sidebar-wrapper aside {
-        width: 100% !important;
-        min-height: auto !important;
-    }
-
-    .patient-main {
-        width: 100%;
-    }
+.patient-main {
+    width: 100%;
 }
 
 @media (max-width: 575.98px) {
@@ -1074,20 +1009,6 @@ body {
     overflow-wrap: anywhere;
 }
 
-.admin-sidebar-wrapper,
-.patient-sidebar-wrapper,
-.donor-sidebar-wrapper {
-    align-self: stretch;
-    min-height: calc(100vh - 75px);
-}
-
-.admin-sidebar-wrapper aside,
-.patient-sidebar-wrapper aside,
-.donor-sidebar-wrapper aside {
-    min-height: calc(100vh - 75px) !important;
-    height: 100% !important;
-}
-
 .donor-layout {
     min-width: 0;
 }
@@ -1106,29 +1027,8 @@ body {
     align-self: flex-start;
 }
 
-@media (max-width: 991.98px) {
-    .donor-layout {
-        flex-direction: column;
-    }
-
-    .donor-sidebar-wrapper {
-        display: none;
-        width: 100%;
-    }
-
-    .donor-sidebar-wrapper.sidebar-open {
-        display: block;
-    }
-
-    .donor-sidebar-wrapper aside {
-        width: 100% !important;
-        min-height: auto !important;
-        height: auto !important;
-    }
-
-    .donor-main {
-        width: 100%;
-    }
+.donor-main {
+    width: 100%;
 }
 
 @media (max-width: 575.98px) {
@@ -3040,5 +2940,723 @@ textarea.contact-input {
 
     .email-preview-footer {
         padding: 12px 15px;
+    }
+}
+
+.donor-profile-card {
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donor-profile-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(149, 22, 41, 0.13);
+}
+
+.donor-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    background: #fff0f1;
+    color: #951629;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.donor-profile-card h5 {
+    color: #292329;
+}
+
+.donor-blood-group {
+    display: inline-block;
+    background: #951629;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.donor-card-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.donor-card-info i {
+    color: #951629;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.donor-profile-card .btn-danger {
+    background: #951629;
+    border-color: #951629;
+}
+
+.donor-profile-card .btn-danger:hover {
+    background: #76101f;
+    border-color: #76101f;
+}
+
+[data-theme="dark"] .donor-profile-card {
+    background: #252525;
+}
+
+[data-theme="dark"] .donor-profile-card h5 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .donor-card-info p {
+    color: #cccccc;
+}
+
+[data-theme="dark"] .donor-avatar {
+    background: #49252c;
+    color: #ffb6c0;
+}
+
+.donor-directory-page {
+    min-height: 75vh;
+    background: #f8f9fc;
+}
+
+.donor-directory-page h1 {
+    color: #951629;
+    font-size: clamp(28px, 4vw, 40px);
+}
+
+.donor-directory-page .input-group {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.donor-directory-page .form-control:focus {
+    border-color: #951629;
+    box-shadow: 0 0 0 0.2rem rgba(149, 22, 41, 0.12);
+}
+
+[dark-theme="dark"] .donor-directory-page {
+    background: #181818;
+}
+
+[dark-theme="dark"] .donor-directory-page h4,
+[dark-theme="dark"] .donor-directory-page h5 {
+    color: #ffffff;
+}
+
+[dark-theme="dark"] .donor-directory-page .text-secondary {
+    color: #bdbdbd !important;
+}
+
+[dark-theme="dark"] .donor-directory-page .input-group-text,
+[dark-theme="dark"] .donor-directory-page input {
+    background: #303030 !important;
+    color: #ffffff !important;
+    border-color: #484848;
+}
+
+@media (max-width: 576px) {
+    .donor-directory-page .container {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+}
+
+[data-theme="dark"] .donor-directory-page {
+    background-color: #17191f;
+    color: #f5f5f5;
+    min-height: 100vh;
+}
+
+[data-theme="dark"] .donor-directory-page h1,
+[data-theme="dark"] .donor-directory-page h2,
+[data-theme="dark"] .donor-directory-page h3,
+[data-theme="dark"] .donor-directory-page h4,
+[data-theme="dark"] .donor-directory-page h5,
+[data-theme="dark"] .donor-directory-page label {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .donor-directory-page p {
+    color: #c5c5c5;
+}
+
+[data-theme="dark"] .donor-directory-page .form-control {
+    background-color: #292c34;
+    color: #ffffff;
+    border-color: #454954;
+}
+
+[data-theme="dark"] .donor-directory-page .form-control::placeholder {
+    color: #b5b5b5;
+}
+
+[data-theme="dark"] .donor-directory-page .form-control:focus {
+    border-color: #951629;
+    box-shadow: 0 0 0 0.2rem rgba(149, 22, 41, 0.2);
+}
+
+.blood-type-card {
+    position: relative;
+    height: 100%;
+    padding: 22px;
+    border-radius: 18px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.blood-type-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(149, 22, 41, 0.12);
+}
+
+.blood-type-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: #fbe7ea;
+    color: #951629;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.blood-type-card h3 {
+    font-size: 27px;
+    font-weight: 800;
+    color: #951629;
+    margin-bottom: 8px;
+}
+
+.blood-units {
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #292929;
+}
+
+.blood-units span {
+    font-size: 13px;
+    font-weight: 500;
+    color: #777777;
+}
+
+.blood-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.blood-status.available {
+    background: #d9f5e5;
+    color: #16834a;
+}
+
+.blood-status.low {
+    background: #fff0ce;
+    color: #a66b00;
+}
+
+.blood-status.critical {
+    background: #ffe0e0;
+    color: #c62828;
+}
+
+[data-theme="dark"] .blood-type-card {
+    background: #252525;
+    border-color: #3a3a3a;
+}
+
+[data-theme="dark"] .blood-units {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .blood-units span {
+    color: #bbbbbb;
+}
+
+[data-theme="dark"] .blood-types-section h4 {
+    color: #ffffff;
+}
+
+.donation-timeline {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 15px;
+    position: relative;
+}
+
+.timeline-step {
+    position: relative;
+    min-width: 0;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.timeline-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background: #f0c4cb;
+    top: 36px;
+    left: calc(50% + 30px);
+    width: calc(100% - 45px);
+}
+
+.timeline-marker {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #951629;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin: 0 auto 15px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(149, 22, 41, 0.2);
+}
+
+.timeline-step-number {
+    font-size: 10px;
+    font-weight: 700;
+    color: #951629;
+    letter-spacing: 1px;
+}
+
+.timeline-content h6 {
+    font-weight: 700;
+    margin: 7px 0;
+    color: #292929;
+}
+
+.timeline-content p {
+    font-size: 12px;
+    color: #777777;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+    .donation-timeline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        row-gap: 25px;
+    }
+
+    .timeline-step:nth-child(3)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .donation-timeline {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .timeline-step {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 15px;
+        padding: 10px 0 25px;
+    }
+
+    .timeline-marker {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        font-size: 19px;
+        margin: 0;
+    }
+
+    .timeline-step:not(:last-child)::after {
+        display: block;
+        width: 3px;
+        height: calc(100% - 35px);
+        top: 58px;
+        left: 23px;
+    }
+
+    .timeline-content {
+        padding-top: 2px;
+    }
+}
+
+[data-theme="dark"] .donation-timeline-section {
+    background: #252525;
+}
+
+[data-theme="dark"] .donation-timeline-section h4,
+[data-theme="dark"] .timeline-content h6 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .timeline-content p {
+    color: #c5c5c5;
+}
+
+[data-theme="dark"] .timeline-step:not(:last-child)::after {
+    background: #65323a;
+}
+
+.donation-journey-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 50px;
+    background: #fbe7ea;
+    color: #951629;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid #f3c5cc;
+    margin-bottom: 12px;
+}
+
+[data-theme="dark"] .donation-journey-badge {
+    background: #49252c;
+    color: #ffb6c0;
+    border-color: #713540;
+}
+
+.sidebar-mobile-overlay {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .bloodlink-sidebar {
+        position: fixed !important;
+        top: 90px;
+        left: 0;
+        bottom: 0;
+        width: min(280px, 85vw) !important;
+        height: calc(100vh - 90px) !important;
+        min-height: 0 !important;
+        overflow-y: auto;
+        z-index: 1040;
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition: transform 0.3s ease, visibility 0.3s ease;
+    }
+
+    .bloodlink-sidebar.sidebar-mobile-open {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .sidebar-mobile-overlay {
+        display: block;
+        position: fixed;
+        top: 90px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1039;
+    }
+}
+
+@media (min-width: 992px) {
+    .bloodlink-sidebar {
+        position: relative !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    .sidebar-mobile-overlay {
+        display: none !important;
+    }
+}
+
+.bloodlink-menu-toggle:hover {
+    background: #76101f;
+    border-color: #76101f;
+    color: #ffffff;
+}
+
+@media (max-width: 991px) {
+    .bloodlink-menu-toggle {
+        display: inline-flex;
+    }
+
+    .bloodlink-sidebar {
+        position: fixed !important;
+        top: 90px;
+        left: 0;
+        bottom: 0;
+        width: min(280px, 85vw) !important;
+        height: calc(100vh - 90px) !important;
+        min-height: 0 !important;
+        overflow-y: auto;
+        z-index: 1040;
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition: transform 0.3s ease, visibility 0.3s ease;
+    }
+
+    .bloodlink-sidebar.sidebar-mobile-open {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .sidebar-mobile-overlay {
+        display: block;
+        position: fixed;
+        top: 90px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1039;
+    }
+}
+
+@media (min-width: 992px) {
+    .bloodlink-menu-toggle {
+        display: none;
+    }
+
+    .bloodlink-sidebar {
+        position: relative !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+}
+
+.admin-layout,
+.patient-layout,
+.donor-layout {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    position: relative;
+}
+
+.admin-sidebar-wrapper,
+.patient-sidebar-wrapper,
+.donor-sidebar-wrapper {
+    width: 260px;
+    flex-shrink: 0;
+    align-self: stretch;
+    min-height: calc(100vh - 75px);
+}
+
+.bloodlink-sidebar {
+    display: block;
+    position: sticky;
+    top: 75px;
+    width: 260px !important;
+    height: calc(100vh - 75px);
+    min-height: 0;
+    overflow-y: auto;
+    padding: 24px 16px;
+    background: linear-gradient(180deg,
+            #951629 0%,
+            #b42332 55%,
+            #861426 100%);
+    z-index: 100;
+    transform: none;
+    visibility: visible;
+    transition: transform 0.3s ease;
+}
+
+.bloodlink-sidebar .nav-link {
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.bloodlink-sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.bloodlink-sidebar .nav-link.active {
+    background: #fff;
+    color: #951629 !important;
+}
+
+.dashboard-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 46px;
+    padding: 10px 18px;
+    background: #951629 !important;
+    border: 1px solid #951629 !important;
+    color: #fff !important;
+    font-weight: 600;
+    position: relative;
+    z-index: 1052;
+}
+
+.dashboard-menu-button:hover,
+.dashboard-menu-button:focus {
+    background: #7d1222 !important;
+    border-color: #7d1222 !important;
+    color: #fff !important;
+}
+
+.sidebar-mobile-overlay {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+
+    .admin-layout,
+    .patient-layout,
+    .donor-layout {
+        flex-direction: column;
+    }
+
+    .admin-sidebar-wrapper,
+    .patient-sidebar-wrapper,
+    .donor-sidebar-wrapper {
+        width: 0;
+        min-width: 0;
+        min-height: 0;
+        height: 0;
+        flex: 0 0 0;
+    }
+
+    .bloodlink-sidebar {
+        position: fixed !important;
+        top: 75px;
+        left: 0;
+        bottom: 0;
+        width: min(280px, 85vw) !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow-y: auto;
+        z-index: 1051;
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition:
+            transform 0.3s ease,
+            visibility 0.3s ease;
+        box-shadow: 8px 0 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .bloodlink-sidebar.sidebar-mobile-open {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .sidebar-mobile-overlay {
+        display: block;
+        position: fixed;
+        inset: 75px 0 0;
+        width: 100%;
+        height: calc(100vh - 75px);
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+    }
+
+    .admin-main,
+    .patient-main,
+    .donor-main {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .admin-sidebar-wrapper,
+    .patient-sidebar-wrapper,
+    .donor-sidebar-wrapper {
+        width: 260px;
+        min-height: calc(100vh - 75px);
+        height: auto;
+    }
+
+    .bloodlink-sidebar {
+        position: sticky !important;
+        top: 75px;
+        width: 260px !important;
+        height: calc(100vh - 75px) !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    .sidebar-mobile-overlay {
+        display: none !important;
+    }
+}
+
+[data-theme="dark"] .bloodlink-sidebar {
+    background: linear-gradient(180deg,
+            #701321 0%,
+            #951629 55%,
+            #64101c 100%);
+}
+
+[data-theme="dark"] .dashboard-menu-button {
+    background: #951629 !important;
+    color: #fff !important;
+    border-color: #951629 !important;
+}
+
+/* =========================================================
+   Sidebar / Menu button fixes (end of file so these win)
+   ========================================================= */
+
+/* Laptop/desktop: Menu button chhupao aur sidebar ki width sab pages par same rakho */
+@media (min-width: 992px) {
+
+    .dashboard-menu-button,
+    .sidebar-floating-toggle {
+        display: none !important;
+    }
+
+    .bloodlink-sidebar {
+        flex: 0 0 260px !important;
+        width: 260px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
+    }
+}
+
+/* Tablet/phone */
+@media (max-width: 991.98px) {
+    .dashboard-menu-button {
+        align-self: flex-start;
+        margin: 12px 16px 0;
+    }
+
+    /* Jin pages me page ka apna Menu button nahi hai unke liye */
+    .sidebar-floating-toggle {
+        display: inline-flex;
+        align-items: center;
+        position: fixed;
+        left: 16px;
+        bottom: 18px;
+        z-index: 1052;
+        background: #951629 !important;
+        border: 1px solid #951629 !important;
+        color: #fff !important;
+        font-weight: 600;
+        border-radius: 50rem;
+        padding: 10px 18px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     }
 }

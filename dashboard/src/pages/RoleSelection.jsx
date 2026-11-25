@@ -135,6 +135,9 @@ function RoleSelection() {
                                     <Link
                                         to={role.path}
                                         className="role-continue-btn"
+                                        onClick={() => {
+                                            sessionStorage.setItem("bloodlinkRole", role.type);
+                                        }}
                                     >
                                         <span>{role.buttonText}</span>
                                         <i className="bi bi-arrow-right"></i>

@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import ReusableTable from "../components/ReusableTable";
+import DonationTimeline from "../components/DonationTimeline";
 
 function DonationHistory() {
     const [donations, setDonations] = useState([]);
@@ -199,6 +200,8 @@ function DonationHistory() {
 
                         </div>
                     </div>
+
+                    <DonationTimeline />
 
                     <div className="row g-3 mb-4">
 

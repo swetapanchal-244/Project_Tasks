@@ -139,23 +139,25 @@ function DonorHome() {
                     className={`donor-sidebar-wrapper ${sidebarOpen ? "sidebar-open" : ""
                         }`}
                 >
-                    <Sidebar role="donor" activeMenu="Dashboard" />
+                    <Sidebar
+                        role="donor"
+                        isOpen={sidebarOpen}
+                        onClose={() => setSidebarOpen(false)}
+                    />
                 </div>
 
                 <main className="flex-grow-1 min-w-0 p-3 p-md-4 donor-main">
+
                     <button
                         type="button"
-                        className="btn btn-danger d-lg-none donor-menu-toggle mb-3"
-                        onClick={() => setSidebarOpen(!sidebarOpen)}
-                        aria-expanded={sidebarOpen}
-                        aria-label="Toggle donor menu"
+                        className="btn btn-danger dashboard-menu-button"
+                        onClick={() => setSidebarOpen((previous) => !previous)}
+                        aria-label="Toggle dashboard sidebar"
                     >
-                        <i
-                            className={`bi ${sidebarOpen ? "bi-x-lg" : "bi-list"
-                                } me-2`}
-                        ></i>
-                        {sidebarOpen ? "Close Menu" : "Menu"}
+                        <i className="bi bi-list me-2"></i>
+                        Menu
                     </button>
+
 
                     <div
                         className="card border-0 rounded-4 shadow-sm text-white mb-4"
@@ -231,7 +233,7 @@ function DonorHome() {
                             </div>
 
                             <div className="row mb-4">
-                                <div className="co-md-8 col-lg-6">
+                                <div className="col-md-8 col-lg-6">
 
                                     <label className="form-label fw-semibold">
                                         Search Donations

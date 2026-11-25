@@ -127,7 +127,11 @@ function BloodRequest() {
                     id="patient-sidebar"
                     className={`patient-sidebar-wrapper ${sidebarOpen ? "sidebar-open" : ""}`}
                 >
-                    <Sidebar role="patient" />
+                    <Sidebar
+                        role="patient"
+                        isOpen={sidebarOpen}
+                        onClose={() => setSidebarOpen(false)}
+                    />
                 </div>
 
                 <main className="container-fluid p-3 p-lg-4 min-w-0">

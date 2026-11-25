@@ -6,6 +6,7 @@ import {
     useReactTable,
 } from "@tanstack/react-table";
 import { Helmet } from "react-helmet-async";
+import BloodTypeCard from "../components/BloodTypeCard";
 
 import ReusableTable from "../components/ReusableTable";
 
@@ -127,6 +128,31 @@ function BloodStock() {
                 <Sidebar role="admin" activeMenu="Blood Stock" />
 
                 <div className="container-fluid p-3 p-md-4">
+
+                    <div className="blood-types-section mb-4">
+                        <div className="mb-3">
+                            <h4 className="fw-bold mb-1">Blood Group Overview</h4>
+                            <p className="text-muted mb-0">
+                                Available units for all blood groups
+                            </p>
+                        </div>
+
+                        <div className="row g-3">
+                            {data.map((item) => (
+                                <div
+                                    className="col-6 col-md-4 col-lg-3"
+                                    key={item.bloodGroup}
+                                >
+                                    <BloodTypeCard
+                                        bloodGroup={item.bloodGroup}
+                                        availableUnits={item.availableUnits}
+                                        status={item.status}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
                     <div className="card border-0 shadow-sm rounded-4">
                         <div className="card-body p-3 p-md-4">
                             <div className="d-flex justify-content-between align-items-center mb-4">

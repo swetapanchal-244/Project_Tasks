@@ -1,4 +1,3 @@
-
 import { useEffect, useMemo, useState } from "react";
 import {
     createColumnHelper,
@@ -151,7 +150,11 @@ function PatientRequestHistory() {
                 </button>
 
                 <div className={`patient-sidebar-wrapper ${sidebarOpen ? "sidebar-open" : ""}`}>
-                    <Sidebar role="patient" />
+                    <Sidebar
+                        role="patient"
+                        isOpen={sidebarOpen}
+                        onClose={() => setSidebarOpen(false)}
+                    />
                 </div>
 
                 <main className="flex-grow-1 min-w-0 p-3 p-md-4 patient-main">

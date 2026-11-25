@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
@@ -44,6 +43,7 @@ function Navbar({ name, role, profileImage }) {
                     </span>
                 </Link>
 
+
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -55,6 +55,7 @@ function Navbar({ name, role, profileImage }) {
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
+
 
                 <div className="collapse navbar-collapse" id="bloodLinkNavbar">
 

@@ -1,4 +1,3 @@
-
 import { lazy, Suspense } from "react";
 import {
   BrowserRouter,
@@ -37,6 +36,7 @@ const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
+const DonorDirectory = lazy(() => import("./pages/DonorDirectory"));
 
 function StandaloneThemeToggle() {
   const { pathname } = useLocation();
@@ -179,6 +179,11 @@ function App() {
           <Route
             path="/contact-us"
             element={<ContactUs />}
+          />
+
+          <Route
+            path="/donor-directory"
+            element={<DonorDirectory />}
           />
 
           <Route
